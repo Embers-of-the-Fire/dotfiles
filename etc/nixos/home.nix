@@ -12,8 +12,15 @@
   programs.git = {
     enable = true;
     settings = {
-      user.name = "Embers-of-the-Fire";
-      user.emal = "stellarishs@163.com";
+      user = {
+        name = "Embers-of-the-Fire";
+        email = "stellarishs@163.com";
+      };
+      credential = {
+        helper = "manager";
+        "https://github.com".username = "Embers-of-the-Fire";
+        credentialStore = "cache";
+      };
     };
   };
 
@@ -117,6 +124,7 @@
     pnpm
     uv
     (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.pycharm-professional [ "github-copilot" ])
+    git-credential-manager
   ];
 }
 
