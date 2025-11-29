@@ -1,0 +1,52 @@
+hotkey-overlay {
+    skip-at-startup
+}
+
+input {
+    keyboard {
+        xkb { }
+    }
+
+    touchpad {
+        tap
+        natural-scroll
+    }
+
+    mouse { }
+
+    trackpoint { }
+}
+
+output "DP-1" {
+    mode "3840x2160@60.000";
+    scale 1.5
+    transform "normal"
+    position x=0 y=246
+    focus-at-startup
+}
+
+output "HDMI-A-3" {
+    mode "2560x1440@100.000";
+    scale 1.2
+    transform "90"
+    position x=2560 y=0
+}
+
+environment {
+    GTK_USE_PORTAL "0"
+}
+
+animations {
+    off
+}
+
+binds {
+    Mod+Shift+P { power-off-monitors; }
+    Ctrl+Alt+Delete { quit; }
+    Mod+Shift+E { quit; }
+}
+
+layout { }
+
+spawn-at-startup "sh" "-c" "/etc/greetd/start-greet.sh"
+

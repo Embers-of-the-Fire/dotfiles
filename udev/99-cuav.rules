@@ -1,0 +1,5 @@
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="3163", MODE:="0666", GROUP:="plugdev"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="05e3", MODE:="0666", GROUP:="plugdev"
+SUBSYSTEMS=="tty", ATTRS{idVendor}=="3163", MODE:="0666", GROUP:="plugdev"
+SUBSYSTEMS=="tty", ATTRS{idVendor}=="05e3", MODE:="0666", GROUP:="plugdev"
+
