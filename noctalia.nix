@@ -5,13 +5,12 @@
     enable = true;
     settings = {
       bar = {
-        position = "bottom";
+        position = "top";
         density = "comfortable";
         backgroundOpacity = 0.2;
         monitors = [ "DP-1" ];
         widgets = {
           left = [
-            { id = "ControlCenter"; }
             {
               id = "SystemMonitor";
               usePrimaryColor = false;
@@ -23,6 +22,11 @@
               diskPath = "/";
             }
             {
+              id = "AudioVisualizer";
+              hideWhenIdel = false;
+              width = 150;
+            }
+            {
               id = "ActiveWindow";
               hideMode = "visible";
               showIcon = false;
@@ -30,11 +34,6 @@
             }
           ];
           center = [
-            {
-              id = "AudioVisualizer";
-              hideWhenIdel = false;
-              width = 150;
-            }
             { id = "Workspace"; }
           ];
           right = [
@@ -51,6 +50,7 @@
             { id = "Spacer"; width = 10; }
             { id = "KeepAwake"; }
             { id = "PowerProfile"; }
+            { id = "ControlCenter"; }
             { id = "Clock"; }
             { id = "SessionMenu"; }
           ];
