@@ -18,6 +18,12 @@ in
     ./extra-fs.nix
     ./machine-dotfiles.nix
   ];
+  
+  fileSystems."/home" = {
+    device = "none";
+    fsType = "tmpfs";
+    options = [ "mode=0755" "size=32G" "defaults" "group=1" "uid=1000" "gid=100" ];
+  };
 
   programs.fuse = {
     enable = true;
