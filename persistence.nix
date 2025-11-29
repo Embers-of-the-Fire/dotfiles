@@ -42,7 +42,6 @@
       ];
       files = [
         ".bash_history"
-        ".copilot/config.json"
         ".gitconfig"
         ".gtkrc-2.0"
         ".ideavimrc"
