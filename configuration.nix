@@ -253,6 +253,7 @@ in
     wget
     xrandr
     lm_sensors
+    liquidctl
     xwayland-satellite
     rofi-launcher-variant
     gtkgreet
