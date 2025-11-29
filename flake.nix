@@ -7,6 +7,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    impermanence.url = "github:nix-community/impermanence";
     distro-grub-themes.url = "github:AdisonCavani/distro-grub-themes";
     lazyvim.url = "github:pfassina/lazyvim-nix";
     niri = {
@@ -37,6 +38,7 @@
           home-manager.useUserPackages = true;
           home-manager.users.admin = {
 	        imports = [
+              inputs.impermanence.homeManagerModules.impermanence
 	          lazyvim.homeManagerModules.default
               inputs.noctalia.homeModules.default
               ./noctalia.nix

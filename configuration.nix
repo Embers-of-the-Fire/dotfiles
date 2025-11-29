@@ -19,6 +19,11 @@ in
     ./machine-dotfiles.nix
   ];
 
+  programs.fuse = {
+    enable = true;
+    userAllowOther = true;
+  };
+
   # Dirty hack to make UV happy
   programs.nix-ld.enable = true;
 

@@ -20,6 +20,7 @@ in
   home.stateVersion = "24.11";
 
   imports = [
+    ./persistence.home.admin.nix
     ./dotfiles.nix
     ./fonts.nix
     ./vscode-settings.nix
