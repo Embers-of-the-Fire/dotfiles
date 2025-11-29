@@ -10,11 +10,12 @@
     users.admin = {
       directories = [
         ".android"
+        { directory = ".cache"; user = "admin"; group = "wheel"; mode = "0755"; }
         ".cmake"
         ".config/fcitx5"
         ".config/qutebrowser"
-	{ directory = ".config"; user = "admin"; group = "wheel"; mode = "0755"; }
-	{ directory = ".cache"; user = "admin"; group = "wheel"; mode = "0755"; }
+        { directory = ".config"; user = "admin"; group = "wheel"; mode = "0755"; }
+        ".copilot"
         ".docker"
         ".gnupg"
         ".gradle"
