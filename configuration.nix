@@ -13,6 +13,7 @@ in
   ];
   imports = [
     ./environments.nix
+    ./persistence.nix
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./extra-fs.nix

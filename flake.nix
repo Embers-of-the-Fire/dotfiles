@@ -32,13 +32,13 @@
         ./configuration.nix
         ./chinese.nix
         self.nixosModules.udevRule
+        inputs.impermanence.nixosModules.impermanence
         inputs.distro-grub-themes.nixosModules.${system}.default
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.admin = {
 	        imports = [
-              inputs.impermanence.homeManagerModules.impermanence
 	          lazyvim.homeManagerModules.default
               inputs.noctalia.homeModules.default
               ./noctalia.nix
