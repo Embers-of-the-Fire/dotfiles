@@ -5,6 +5,8 @@
     directories = [
       ".android"
       ".cmake"
+      ".config/fcitx5"
+      ".config/qutebrowser"
       ".docker"
       ".gnupg"
       ".gradle"
