@@ -13,6 +13,8 @@
         ".cmake"
         ".config/fcitx5"
         ".config/qutebrowser"
+	{ directory = ".config"; user = "admin"; group = "wheel"; mode = "0755"; }
+	{ directory = ".cache"; user = "admin"; group = "wheel"; mode = "0755"; }
         ".docker"
         ".gnupg"
         ".gradle"

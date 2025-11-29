@@ -23,8 +23,12 @@ in
   fileSystems."/home" = {
     device = "none";
     fsType = "tmpfs";
-    options = [ "mode=0755" "size=32G" "defaults" "group=1" "uid=1000" "gid=100" ];
+    options = [ "mode=0755" "size=32G" "defaults" "uid=1000" "gid=100" ];
   };
+
+  systemd.tmpfiles.rules = [
+    "d /home/admin 0755 admin users - -"
+  ];
 
   programs.fuse = {
     enable = true;
