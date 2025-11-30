@@ -278,6 +278,7 @@ in
     gtkgreet
     alacritty
     libGL
+    openal
   ];
 
   programs.coolercontrol.enable = true;
