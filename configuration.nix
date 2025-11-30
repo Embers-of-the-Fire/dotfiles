@@ -6,6 +6,7 @@
 
 let
   rofi-launcher-variant = pkgs.writeShellScriptBin "rofi-launcher-variant" (builtins.readFile ./rofi/variant.sh);
+  openrgb-source = pkgs.callPackage ./openrgb-source.nix { };
 in
 {
   nixpkgs.overlays = [
@@ -258,7 +259,7 @@ in
   services.hardware.openrgb = {
     enable = true;
     motherboard = "amd";
-    package = pkgs.openrgb-with-all-plugins;
+    package = openrgb-source;
   };
 
   # List packages installed in system profile.
@@ -272,6 +273,8 @@ in
     liquidctl
     xwayland-satellite
     rofi-launcher-variant
+    openrgb-plugin-effects
+    openrgb-plugin-hardwaresync
     gtkgreet
     alacritty
     libGL

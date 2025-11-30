@@ -14,6 +14,7 @@
         ".cmake"
         ".config/fcitx5"
         ".config/qutebrowser"
+        ".config/OpenRGB"
         { directory = ".config"; user = "admin"; group = "wheel"; mode = "0755"; }
         ".copilot"
         ".docker"

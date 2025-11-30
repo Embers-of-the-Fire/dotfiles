@@ -1,0 +1,5 @@
+# MSI Mystic Light USB Device (0x0076)
+SUBSYSTEMS=="usb|hidraw", ATTRS{idVendor}=="0db0", ATTRS{idProduct}=="0076", TAG+="uaccess", TAG+="MSI_Mystic_Light_USB"
+
+# MSI Motherboard USB devices (common VID)
+SUBSYSTEMS=="usb|hidraw", ATTRS{idVendor}=="1462", TAG+="uaccess", TAG+="MSI_Motherboard"
