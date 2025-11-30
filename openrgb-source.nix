@@ -9,6 +9,7 @@
   mbedtls,
   symlinkJoin,
   qt5,
+  openal
 }:
 
 stdenv.mkDerivation (finalAttrs: {
