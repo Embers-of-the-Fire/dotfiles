@@ -9,6 +9,7 @@
   mbedtls,
   symlinkJoin,
   qt5,
+  pipewire,
   openal
 }:
 
@@ -33,6 +34,7 @@ stdenv.mkDerivation (finalAttrs: {
     openal
     libusb1
     hidapi
+    pipewire
     mbedtls
     qt5.qtbase
     qt5.qttools
@@ -62,6 +64,11 @@ stdenv.mkDerivation (finalAttrs: {
     runHook preInstall
     make install
     runHook postInstall
+  '';
+
+  postFixup = ''
+    wrapQtApp $out/bin/openrgb \
+      --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath [ openal pipewire ]}
   '';
 
   doInstallCheck = true;

@@ -273,12 +273,9 @@ in
     liquidctl
     xwayland-satellite
     rofi-launcher-variant
-    openrgb-plugin-effects
-    openrgb-plugin-hardwaresync
     gtkgreet
     alacritty
     libGL
-    openal
   ];
 
   programs.coolercontrol.enable = true;
