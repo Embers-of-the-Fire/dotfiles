@@ -80,7 +80,19 @@
       dock = {
         enabled = true;
       };
-      wallpaper.enabled = false;
+      wallpaper = {
+        enabled = false;
+        monitorDirectories = [
+            { name = "DP-1";
+              directory = "/home/admin/Theme/Wallpaper";
+              wallpaper = "DP-1.png";
+            }
+            { name = "HDMI-A-3";
+              directory = "/home/admin/Theme/Wallpaper";
+              wallpaper = "HDMI-A-3.png";
+            }];
+        setWallpaperOnAllMonitors = false;
+      };
       network.wifiEnabled = true;
       notifications = {
         respectExpireTimeout = true;

@@ -10,7 +10,7 @@ let
 in
 {
   nixpkgs.overlays = [
-    # inputs.niri.overlays.niri
+    inputs.niri.overlays.niri
   ];
   imports = [
     ./environments.nix
@@ -41,17 +41,28 @@ in
 
   # WM support
   programs.niri.enable = true;
-  # programs.niri.package = pkgs.niri-unstable;
+  programs.niri.package = pkgs.niri-unstable;
 
   services.greetd = {
     enable = true;
     settings = {
       default_session = {
-        command = "niri -c /etc/greetd/config-startup.kdl";
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --asterisks --issue --theme border=magenta;text=cyan;prompt=green;time=red;action=blue;input=red --cmd niri-session";
         user = "greetd";
       };
     };
   };
+  systemd.services.greetd.serviceConfig = {
+    Type = "idle";
+    StandardError = "journal";
+    StandardInput = "tty";
+    StandardOutput = "tty";
+    TTYPath = "/dev/tty1";
+    TTYReset = true;
+    TTYVHangup = true;
+    TTYVDisallocate = true;
+  };
+
   # Mouse speed
   services.libinput.mouse.accelSpeed = "+1.0";
 
@@ -226,9 +237,7 @@ in
     extraGroups = [ "wheel" "docker" "video" "iio" "plugdev" ]; # Enable ‘sudo’ for the user.
   };
   users.users.greetd = {
-    isNormalUser = false;
-    # isNormalUser = true;
-    isSystemUser = true;
+    isNormalUser = true;
     shell = pkgs.bash;
     group = "video";
     extraGroups = [ "wheel" "video" ];

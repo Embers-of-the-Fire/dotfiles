@@ -85,10 +85,9 @@ output "HDMI-A-3" {
     scale 1.2
     transform "90"
     position x=2560 y=0
-    // layout {
-    //     default-column-width { proportion 1.0; }
-    //     default-window-height { proportion 0.5; }
-    // }
+    layout {
+        default-column-width { proportion 1.0; }
+    }
 }
 
 // Settings that influence how windows are positioned and sized.
@@ -123,7 +122,12 @@ layout {
     }
 
     // You can also customize the heights that "switch-preset-window-height" (Mod+Shift+R) toggles between.
-    // preset-window-heights { }
+    preset-window-heights {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+        proportion 1.0
+    }
 
     // You can change the default width of the new windows.
     default-column-width { proportion 0.5; }
@@ -626,5 +630,5 @@ binds {
 
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
-    Mod+Shift+P { power-off-monitors; }
+    Mod+Shift+P hotkey-overlay-title="Power off monitors" { power-off-monitors; }
 }

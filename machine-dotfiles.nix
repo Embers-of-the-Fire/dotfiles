@@ -4,11 +4,6 @@
   environment = {
     etc = {
       "systemd/journald.conf".source = lib.mkForce ./systemd/journald.conf;
-      "greetd/config-startup.kdl".source = ./greetd/config-startup.kdl;
-      "greetd/start-greet.sh"= {
-        source = ./greetd/start-greet.sh;
-        mode = "0755";
-      };
     };
   };
   services.udev.customRules = [
