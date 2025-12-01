@@ -342,10 +342,12 @@ in
     https_proxy = "http://localhost:7897";
   };
 
-  # List services that you want to enable:
-
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+
+  environment.etc."issue".text = ''
+    <<< Welcome to ${config.system.nixos.distroName} ${config.system.nixos.label} >>>
+  ''; 
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
