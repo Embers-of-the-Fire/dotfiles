@@ -273,6 +273,7 @@ in
     openjdk
     libreoffice
     jetbrains.idea-ultimate
+    conda
   ];
 }
 

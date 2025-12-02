@@ -1,5 +1,8 @@
 { environment, lib, ... }:
 
+let
+    proxy = "http://127.0.0.1:7897";
+in
 {
   environment = {
     etc = {

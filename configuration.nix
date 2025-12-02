@@ -14,22 +14,12 @@ in
   ];
   imports = [
     ./environments.nix
-    ./lsyncd-sync.nix
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./extra-fs.nix
     ./machine-dotfiles.nix
   ];
   
-  fileSystems."/home" = {
-    device = "none";
-    fsType = "tmpfs";
-    options = [ "mode=0755" "size=32G" "defaults" "uid=1000" "gid=100" ];
-  };
-
-  systemd.tmpfiles.rules = [
-    "d /home/admin 0755 admin users - -"
-  ];
 
   programs.fuse = {
     enable = true;
@@ -270,6 +260,7 @@ in
     motherboard = "amd";
     package = openrgb-source;
   };
+  systemd.services.openrgb.before = [ "display-manager.service" "greetd.service" ];
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
@@ -288,6 +279,11 @@ in
   ];
 
   programs.coolercontrol.enable = true;
+  systemd.services.coolercontrol = {
+    wantedBy = [ "multi-user.target" ];
+    before = [ "display-manager.service" "greetd.service" ];
+    after = [ "network.target" ];
+  };
 
   programs.neovim = {
     enable = true;
@@ -330,11 +326,11 @@ in
 
   # Docker
   virtualisation.docker.enable = true;
-  systemd.services.docker.serviceConfig.Environment = [
-    "HTTP_PROXY=http://localhost:7897"
-    "HTTPS_PROXY=http://localhost:7897"
-    "NO_PROXY=localhost,127.0.0.1"
-  ];
+  systemd.services.docker.environment = {
+    HTTP_PROXY = "http://127.0.0.1:7897";
+    HTTPS_PROXY = "http://127.0.0.1:7897";
+    NO_PROXY = "localhost,127.0.0.1";
+  };
 
   # Nix proxy
   systemd.services.nix-daemon.environment = {
@@ -347,7 +343,9 @@ in
 
   environment.etc."issue".text = ''
     <<< Welcome to ${config.system.nixos.distroName} ${config.system.nixos.label} >>>
-  ''; 
+  '';
+
+  networking.nameservers = [ "127.0.0.1" "8.8.8.8" ];
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
