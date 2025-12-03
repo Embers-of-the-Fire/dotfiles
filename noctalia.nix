@@ -101,6 +101,9 @@
         respectExpireTimeout = true;
         monitors = [ "DP-1" ];
       };
+      osd = {
+        monitors = [ "DP-1" ];
+      };
       colorSchemes = {
         useWallpaperColors = true;
         darkMode = true;
