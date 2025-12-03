@@ -8,7 +8,20 @@
         enableExtensionUpdateCheck = true;
         enableUpdateCheck = false;
         extensions = with pkgs.vscode-extensions; [
+          ms-vscode.cpptools-extension-pack
+          llvm-vs-code-extensions.vscode-clangd
+          streetsidesoftware.code-spell-checker
+          ms-azuretools.vscode-containers
           vscodevim.vim
+          fill-labs.dependi
+          ms-azuretools.vscode-docker
+          usernamehw.errorlens
+          ecmel.vscode-html-css
+          ms-toolsai.jupyter
+          jnoortheen.nix-ide
+          svelte.svelte-vscode
+          bradlc.vscode-tailwindcss
+          tomoki1207.pdf
           yzhang.markdown-all-in-one
           biomejs.biome
           ms-ceintl.vscode-language-pack-zh-hans
@@ -36,6 +49,7 @@
         userSettings = {
           "update.mode" = "none";
           "workbench.colorTheme" = "Solarized Dark";
+          "workbench.iconTheme" = "material-icon-theme";
           "github.copilot.nextEditSuggestions.enabled" = true;
           "remote.autoForwardPortsSource" = "hybrid";
           "vim.handleKeys" = {
@@ -47,9 +61,9 @@
             "<C-x>" = false;
             "<C-f>" = false;
           };
+          "svelte.enable-ts-plugin" = true;
         };
       };
     };
   };
 }
-

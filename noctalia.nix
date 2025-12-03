@@ -47,7 +47,10 @@
             { id = "WiFi"; }
             { id = "Bluetooth"; }
             { id = "Volume"; }
-            { id = "Spacer"; width = 10; }
+            {
+              id = "Spacer";
+              width = 10;
+            }
             { id = "KeepAwake"; }
             { id = "PowerProfile"; }
             { id = "ControlCenter"; }
@@ -77,25 +80,26 @@
         tempWarningThreshold = 75;
         tempCriticalThreshold = 85;
       };
-      dock = {
-        enabled = true;
-      };
       wallpaper = {
         enabled = false;
         monitorDirectories = [
-            { name = "DP-1";
-              directory = "/home/admin/Theme/Wallpaper";
-              wallpaper = "DP-1.png";
-            }
-            { name = "HDMI-A-3";
-              directory = "/home/admin/Theme/Wallpaper";
-              wallpaper = "HDMI-A-3.png";
-            }];
+          {
+            name = "DP-1";
+            directory = "/home/admin/Theme/Wallpaper";
+            wallpaper = "DP-1.png";
+          }
+          {
+            name = "HDMI-A-3";
+            directory = "/home/admin/Theme/Wallpaper";
+            wallpaper = "HDMI-A-3.png";
+          }
+        ];
         setWallpaperOnAllMonitors = false;
       };
       network.wifiEnabled = true;
       notifications = {
         respectExpireTimeout = true;
+        monitors = [ "DP-1" ];
       };
       colorSchemes = {
         useWallpaperColors = true;

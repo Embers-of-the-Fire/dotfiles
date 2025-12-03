@@ -274,6 +274,7 @@ in
     libreoffice
     jetbrains.idea-ultimate
     conda
+    nixfmt
   ];
 }
 
