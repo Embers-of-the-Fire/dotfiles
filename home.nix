@@ -1,4 +1,9 @@
-inputs@{ config, pkgs, lib, ... }:
+inputs@{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   makeAppImage = import ./make-appimage.nix;
@@ -7,13 +12,15 @@ let
     version = "5.0.8";
     url = "https://github.com/mavlink/qgroundcontrol/releases/download/v5.0.8/QGroundControl-x86_64.AppImage";
     hash = "sha256-BpacZ+9Y6gY97wqCcUR6HMOFQ4xKffNoEzFbRHUUZzc=";
-    extraInstallCommands = { src, appimageContents }: ''
-      install -m 444 -D ${appimageContents}/org.mavlink.qgroundcontrol.desktop -t $out/share/applications
-      cp -r ${appimageContents}/usr/share/icons $out/share
-      cp -r ${appimageContents}/QGroundControl.png $out/share
-      substituteInPlace $out/share/applications/org.mavlink.qgroundcontrol.desktop \
-        --replace 'Exec=QGroundControl' 'Exec=qgroundcontrol'
-    '';
+    extraInstallCommands =
+      { src, appimageContents }:
+      ''
+        install -m 444 -D ${appimageContents}/org.mavlink.qgroundcontrol.desktop -t $out/share/applications
+        cp -r ${appimageContents}/usr/share/icons $out/share
+        cp -r ${appimageContents}/QGroundControl.png $out/share
+        substituteInPlace $out/share/applications/org.mavlink.qgroundcontrol.desktop \
+          --replace 'Exec=QGroundControl' 'Exec=qgroundcontrol'
+      '';
   } { inherit inputs; };
 in
 {
@@ -26,7 +33,7 @@ in
   ];
 
   programs.fuzzel.enable = true;
-  
+
   services.cliphist = {
     enable = true;
     allowImages = true;
@@ -43,13 +50,14 @@ in
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
+    withNodeJs = true;
   };
 
   programs.lazyvim = {
-    enable  = true;
+    enable = true;
 
     installCoreDependencies = true;
-    
+
     extras = {
       lang.astro = {
         enable = true;
@@ -95,7 +103,7 @@ in
         installDependencies = true;
         installRuntimeDependencies = true;
       };
-      
+
       coding.yanky.enable = true;
       coding.nvim-cmp.enable = true;
 
@@ -127,8 +135,11 @@ in
       nixd
       alejandra
       ruff
+      pyright
       uv
       zls
+      haskellPackages.haskell-debug-adapter
+      markdownlint-cli2
     ];
   };
 
@@ -138,7 +149,11 @@ in
     autosuggestion = {
       enable = true;
       highlight = "fg=#ff00ff,bg=cyan,bold,underline";
-      strategy = [ "match_prev_cmd" "history" "completion" ];
+      strategy = [
+        "match_prev_cmd"
+        "history"
+        "completion"
+      ];
     };
     syntaxHighlighting.enable = true;
     autocd = true;
@@ -147,7 +162,10 @@ in
         fastfetch = lib.mkOrder 1600 "fastfetch";
         starship = lib.mkOrder 1500 "eval \"$(starship init zsh)\"";
       in
-        lib.mkMerge [ fastfetch starship ];
+      lib.mkMerge [
+        fastfetch
+        starship
+      ];
   };
 
   programs.fish = {
@@ -174,9 +192,15 @@ in
     enableFishIntegration = true;
     keymap = {
       mgr.prepend_keymap = [
-        { run = [ ''shell -- for path in "$@"; do echo "file://$path"; done | wl-copy -t text/uri-list'' "yank" ]; on = "y"; }
+        {
+          run = [
+            ''shell -- for path in "$@"; do echo "file://$path"; done | wl-copy -t text/uri-list''
+            "yank"
+          ];
+          on = "y";
+        }
       ];
-    };    
+    };
   };
 
   programs.rofi = {
@@ -277,4 +301,3 @@ in
     nixfmt
   ];
 }
-

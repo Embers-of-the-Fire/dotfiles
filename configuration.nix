@@ -2,10 +2,18 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 let
-  rofi-launcher-variant = pkgs.writeShellScriptBin "rofi-launcher-variant" (builtins.readFile ./rofi/variant.sh);
+  rofi-launcher-variant = pkgs.writeShellScriptBin "rofi-launcher-variant" (
+    builtins.readFile ./rofi/variant.sh
+  );
   openrgb-source = pkgs.callPackage ./openrgb-source.nix { };
 in
 {
@@ -19,7 +27,6 @@ in
     ./extra-fs.nix
     ./machine-dotfiles.nix
   ];
-  
 
   programs.fuse = {
     enable = true;
@@ -64,7 +71,10 @@ in
   nix.settings.substituters = [ "https://mirrors.ustc.edu.cn/nix-channels/store" ];
 
   # flakes support
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Storage optimization
   nix.gc = {
@@ -94,7 +104,10 @@ in
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelModules = [ "coretemp" "nct6687" ];
+  boot.kernelModules = [
+    "coretemp"
+    "nct6687"
+  ];
   boot.extraModulePackages = with pkgs; [
     (linuxPackages_latest.nct6687d.overrideAttrs (oldAttrs: {
       version = "0-unstable-2025-11-29";
@@ -113,7 +126,7 @@ in
   networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
   programs.nm-applet.enable = true;
 
   hardware.bluetooth = {
@@ -185,7 +198,12 @@ in
         "bluez5.enable-sbc-xq" = true;
         "bluez5.enable-msbc" = true;
         "bluez5.enable-hw-volume" = true;
-        "bluez5.roles" = [ "hsp_hs" "hsp_ag" "hfp_hf" "hfp_ag" ];
+        "bluez5.roles" = [
+          "hsp_hs"
+          "hsp_ag"
+          "hfp_hf"
+          "hfp_ag"
+        ];
       };
     };
   };
@@ -218,19 +236,28 @@ in
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.zsh;
 
-  users.groups.iio = {};
-  users.groups.plugdev = {};
+  users.groups.iio = { };
+  users.groups.plugdev = { };
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.admin = {
     isNormalUser = true;
     shell = pkgs.fish;
-    extraGroups = [ "wheel" "docker" "video" "iio" "plugdev" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [
+      "wheel"
+      "docker"
+      "video"
+      "iio"
+      "plugdev"
+    ]; # Enable ‘sudo’ for the user.
   };
   users.users.greetd = {
     isNormalUser = true;
     shell = pkgs.bash;
     group = "video";
-    extraGroups = [ "wheel" "video" ];
+    extraGroups = [
+      "wheel"
+      "video"
+    ];
   };
 
   programs.firefox = {
@@ -260,7 +287,10 @@ in
     motherboard = "amd";
     package = openrgb-source;
   };
-  systemd.services.openrgb.before = [ "display-manager.service" "greetd.service" ];
+  systemd.services.openrgb.before = [
+    "display-manager.service"
+    "greetd.service"
+  ];
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
@@ -281,7 +311,10 @@ in
   programs.coolercontrol.enable = true;
   systemd.services.coolercontrol = {
     wantedBy = [ "multi-user.target" ];
-    before = [ "display-manager.service" "greetd.service" ];
+    before = [
+      "display-manager.service"
+      "greetd.service"
+    ];
     after = [ "network.target" ];
   };
 
@@ -292,12 +325,12 @@ in
     vimAlias = true;
     configure = {
       customRC = ''
-        set number
-	    set relativenumber
+                set number
+        	    set relativenumber
       '';
     };
   };
-  
+
   # Add ~/.local/bin to PATH
   environment.localBinInPath = true;
 
@@ -345,8 +378,6 @@ in
     <<< Welcome to ${config.system.nixos.distroName} ${config.system.nixos.label} >>>
   '';
 
-  networking.nameservers = [ "127.0.0.1" "8.8.8.8" ];
-
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
@@ -377,4 +408,3 @@ in
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "25.05"; # Did you read the comment?
 }
-

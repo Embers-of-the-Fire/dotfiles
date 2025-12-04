@@ -62,6 +62,9 @@
             "<C-f>" = false;
           };
           "svelte.enable-ts-plugin" = true;
+          "[svelte]" = {
+            "editor.defaultFormatter" = "biomejs.biome";
+          };
         };
       };
     };
