@@ -269,7 +269,14 @@ in
     usbutils
     git-credential-manager
     xhost
-    feishu
+    (feishu.override {
+      commandLineArgs = ''
+        --ozone-platform-hint=auto
+        --enable-features=WaylandWindowDecorations
+        --enable-wayland-ime=true
+        --wayland-text-input-version=3
+      '';
+    })
     foxglove-studio
     mpv
     losslesscut-bin
@@ -299,5 +306,6 @@ in
     jetbrains.idea-ultimate
     conda
     nixfmt
+    postman
   ];
 }

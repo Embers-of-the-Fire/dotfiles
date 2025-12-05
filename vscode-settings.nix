@@ -33,6 +33,7 @@
           oderwat.indent-rainbow
           ms-toolsai.jupyter
           pkief.material-icon-theme
+          rust-lang.rust-analyzer
         ];
         globalSnippets = {
           fixme = {
@@ -60,10 +61,14 @@
             "<C-v>" = false;
             "<C-x>" = false;
             "<C-f>" = false;
+            "<C-a>" = false;
           };
           "svelte.enable-ts-plugin" = true;
           "[svelte]" = {
             "editor.defaultFormatter" = "biomejs.biome";
+          };
+          "[markdown]" = {
+            "editor.defaultFormatter" = "yzhang.markdown-all-in-one";
           };
         };
       };

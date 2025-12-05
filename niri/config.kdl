@@ -147,7 +147,7 @@ layout {
 
     // You can change how the focus ring looks.
     focus-ring {
-	off
+	    off
         width 3
         active-color "#7fc8ff"
         inactive-color "#505050"
@@ -200,8 +200,8 @@ layout {
     }
 
     insert-hint {
-	color "#ffc87f80"
-	gradient from="#ffbb6680" to="#ffc88080" angle=45 relative-to="workspace-view"
+	    color "#ffc87f80"
+	    gradient from="#ffbb6680" to="#ffc88080" angle=45 relative-to="workspace-view"
     }
 
     tab-indicator {
@@ -233,6 +233,20 @@ layout {
     }
 }
 
+overview {
+    backdrop-color "transparent"
+    workspace-shadow {
+        off
+    }
+}
+
+recent-windows {
+    highlight {
+        active-color "#f38ba8"
+        corner-radius 12
+    }
+}
+
 // Add lines like this to spawn processes at startup.
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
@@ -242,7 +256,6 @@ layout {
 spawn-at-startup "noctalia-shell"
 spawn-sh-at-startup "fish -c $HOME/.config/niri/wallpaper.fish"
 spawn-sh-at-startup "zsh -c $HOME/.config/niri/clipboard.zsh"
-spawn-at-startup "noctalia-shell" "ipc" "call" "idleInhibitor" "toggle"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -250,6 +263,8 @@ spawn-at-startup "noctalia-shell" "ipc" "call" "idleInhibitor" "toggle"
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
     // skip-at-startup
+
+    hide-not-bound
 }
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
