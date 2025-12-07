@@ -76,7 +76,7 @@ output "DP-1" {
     mode "3840x2160@60.000"
     scale 1.5
     transform "normal"
-    position x=0 y=246
+    position x=0 y=500
     focus-at-startup
 }
 
