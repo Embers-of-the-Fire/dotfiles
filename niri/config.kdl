@@ -342,6 +342,18 @@ window-rule {
     open-floating true
 }
 
+window-rule {
+    match title="Chill With You"
+    match app-id="steam_app_3548580"
+    default-column-width { proportion 1.0; }
+    default-window-height { proportion 1.0; }
+    open-on-output "HDMI-A-5"
+    open-maximized true
+    open-maximized-to-edges true
+    open-focused false
+    open-fullscreen true
+}
+
 // Example: block out two password managers from screen capture.
 window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
