@@ -94,7 +94,7 @@ output "HDMI-A-5" {
     mode "1920x1200@60.000"
     scale 1.0
     transform "normal"
-    position x=2560 y=2133
+    position x=2560 y=2134
     layout {
         default-column-width { proportion 1.0; }
     }
