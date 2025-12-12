@@ -76,15 +76,22 @@ output "DP-1" {
     mode "3840x2160@60.000"
     scale 1.5
     transform "normal"
-    position x=0 y=500
+    position x=2560 y=500
     focus-at-startup
+}
+
+output "DP-3" {
+    mode "3840x2160@60.000"
+    scale 1.5
+    transform "normal"
+    position x=0 y=510
 }
 
 output "HDMI-A-3" {
     mode "2560x1440@100.000"
     scale 1.2
     transform "90"
-    position x=2560 y=0
+    position x=5120 y=0
     layout {
         default-column-width { proportion 1.0; }
     }
@@ -94,7 +101,7 @@ output "HDMI-A-5" {
     mode "1920x1200@60.000"
     scale 1.0
     transform "normal"
-    position x=2560 y=2134
+    position x=5120 y=2134
     layout {
         default-column-width { proportion 1.0; }
     }
@@ -348,10 +355,6 @@ window-rule {
     default-column-width { proportion 1.0; }
     default-window-height { proportion 1.0; }
     open-on-output "HDMI-A-5"
-    open-maximized true
-    open-maximized-to-edges true
-    open-focused false
-    open-fullscreen true
 }
 
 // Example: block out two password managers from screen capture.

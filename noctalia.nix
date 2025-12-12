@@ -8,7 +8,10 @@
         position = "top";
         density = "comfortable";
         backgroundOpacity = 0.2;
-        monitors = [ "DP-1" ];
+        monitors = [
+          "DP-1"
+          "DP-3"
+        ];
         widgets = {
           left = [
             {

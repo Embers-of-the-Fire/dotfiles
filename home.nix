@@ -308,5 +308,6 @@ in
     nixfmt
     postman
     ffmpeg
+    gh
   ];
 }
