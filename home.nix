@@ -309,5 +309,6 @@ in
     postman
     ffmpeg
     gh
+    go
   ];
 }
