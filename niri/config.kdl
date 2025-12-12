@@ -90,6 +90,16 @@ output "HDMI-A-3" {
     }
 }
 
+output "HDMI-A-5" {
+    mode "1920x1200@60.000"
+    scale 1.0
+    transform "normal"
+    position x=2560 y=2133
+    layout {
+        default-column-width { proportion 1.0; }
+    }
+}
+
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Layout

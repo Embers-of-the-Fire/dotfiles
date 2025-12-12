@@ -307,5 +307,6 @@ in
     conda
     nixfmt
     postman
+    ffmpeg
   ];
 }
