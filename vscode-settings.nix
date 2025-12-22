@@ -34,6 +34,7 @@
           ms-toolsai.jupyter
           pkief.material-icon-theme
           rust-lang.rust-analyzer
+          golang.go
         ];
         globalSnippets = {
           fixme = {
@@ -70,6 +71,8 @@
           "[markdown]" = {
             "editor.defaultFormatter" = "yzhang.markdown-all-in-one";
           };
+          "editor.lineNumbers" = "relative";
+          "editor.fontFamily" = "'Maple Mono NF CN', 'monospace', monospace";
         };
       };
     };

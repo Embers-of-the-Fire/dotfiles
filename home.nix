@@ -304,11 +304,15 @@ in
     openjdk
     libreoffice
     jetbrains.idea-ultimate
+    jetbrains.webstorm
     conda
     nixfmt
     postman
     ffmpeg
     gh
     go
+    syncthing
+    sqlite
+    sqlite-utils
   ];
 }

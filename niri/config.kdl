@@ -271,6 +271,7 @@ recent-windows {
 
 // spawn-at-startup "waybar"
 spawn-at-startup "noctalia-shell"
+spawn-at-startup "syncthing"
 spawn-sh-at-startup "fish -c $HOME/.config/niri/wallpaper.fish"
 spawn-sh-at-startup "zsh -c $HOME/.config/niri/clipboard.zsh"
 

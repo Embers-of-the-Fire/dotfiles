@@ -347,6 +347,10 @@ in
     roboto
     jetbrains-mono
     open-sans
+    maple-mono.CN
+    maple-mono.NF-CN
+    maple-mono.NF
+    maple-mono.truetype
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
