@@ -154,6 +154,11 @@ in
     powerManagement.enable = false;
     open = true;
     nvidiaSettings = true;
+    prime = {
+      sync.enable = true;
+      nvidiaBusId = "PIC:1:0:0";
+      amdgpuBusId = "PCI:15:0:0";
+    };
   };
   hardware.graphics.enable = true;
 
