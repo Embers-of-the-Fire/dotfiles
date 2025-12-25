@@ -144,11 +144,15 @@ in
   };
   services.blueman.enable = true;
 
+  services.xserver.videoDrivers = [
+    "nvidia"
+    "modesetting"
+  ];
   hardware.nvidia = {
     package = config.boot.kernelPackages.nvidiaPackages.stable;
     modesetting.enable = true;
     powerManagement.enable = false;
-    open = false;
+    open = true;
     nvidiaSettings = true;
   };
   hardware.graphics.enable = true;
