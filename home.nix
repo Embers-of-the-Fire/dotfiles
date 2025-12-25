@@ -303,7 +303,7 @@ in
     clang-tools
     openjdk
     libreoffice
-    jetbrains.idea-ultimate
+    jetbrains.idea
     jetbrains.webstorm
     conda
     nixfmt
