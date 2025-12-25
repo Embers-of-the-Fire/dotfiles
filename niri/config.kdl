@@ -97,7 +97,7 @@ output "HDMI-A-3" {
     }
 }
 
-output "HDMI-A-5" {
+output "HDMI-A-1" {
     mode "1920x1200@60.000"
     scale 1.0
     transform "normal"
