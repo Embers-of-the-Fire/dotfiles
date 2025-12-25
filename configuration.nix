@@ -97,10 +97,6 @@ in
     enable = true;
     theme = "nixos";
   };
-  boot.kernelParams = [
-    "acpi_enforce_resources=lax"
-    "video=DP-1:e"
-  ];
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
