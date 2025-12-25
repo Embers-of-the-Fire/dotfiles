@@ -9,7 +9,7 @@
         density = "comfortable";
         backgroundOpacity = 0.2;
         monitors = [
-          "DP-1"
+          "DP-2"
           "DP-3"
         ];
         widgets = {
@@ -87,9 +87,9 @@
         enabled = false;
         monitorDirectories = [
           {
-            name = "DP-1";
+            name = "DP-2";
             directory = "/home/admin/Theme/Wallpaper";
-            wallpaper = "DP-1.png";
+            wallpaper = "DP-2.png";
           }
           {
             name = "HDMI-A-3";
@@ -102,10 +102,10 @@
       network.wifiEnabled = true;
       notifications = {
         respectExpireTimeout = true;
-        monitors = [ "DP-1" ];
+        monitors = [ "DP-2" ];
       };
       osd = {
-        monitors = [ "DP-1" ];
+        monitors = [ "DP-2" ];
       };
       colorSchemes = {
         useWallpaperColors = true;

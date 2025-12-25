@@ -144,6 +144,15 @@ in
   };
   services.blueman.enable = true;
 
+  hardware.nvidia = {
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    modesetting.enable = true;
+    powerManagement.enable = false;
+    open = false;
+    nvidiaSettings = true;
+  };
+  hardware.graphics.enable = true;
+
   programs.adb.enable = true;
 
   programs.clash-verge = {
@@ -334,6 +343,11 @@ in
   # Add ~/.local/bin to PATH
   environment.localBinInPath = true;
 
+  fonts.fontconfig = {
+    defaultFonts = {
+      monospace = [ "Maple Mono NF CN" ];
+    };
+  };
   fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk-sans
