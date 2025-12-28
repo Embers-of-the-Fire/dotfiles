@@ -82,6 +82,7 @@
       systemMonnitor = {
         tempWarningThreshold = 75;
         tempCriticalThreshold = 85;
+        compactMode = false;
       };
       wallpaper = {
         enabled = false;

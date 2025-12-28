@@ -92,13 +92,9 @@ in
     efiSupport = true;
     device = "nodev";
     default = "saved";
-<<<<<<< HEAD
-  };
-=======
     gfxmodeEfi = "1920x1080x32,auto";
   };
 
->>>>>>> e467f61 (sync)
   distro-grub-themes = {
     enable = true;
     theme = "nixos";
@@ -303,16 +299,6 @@ in
   services.upower.enable = true;
 
   services.hardware.openrgb = {
-<<<<<<< HEAD
-    enable = true;
-    motherboard = "amd";
-    package = openrgb-source;
-  };
-  systemd.services.openrgb.before = [
-    "display-manager.service"
-    "greetd.service"
-  ];
-=======
     enable = false;
     # enable = true;
     motherboard = "amd";
@@ -322,7 +308,6 @@ in
   #   "display-manager.service"
   #   "greetd.service"
   # ];
->>>>>>> e467f61 (sync)
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
