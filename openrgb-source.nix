@@ -10,12 +10,20 @@
   symlinkJoin,
   qt5,
   pipewire,
+<<<<<<< HEAD
   openal
+=======
+  openal,
+>>>>>>> e467f61 (sync)
 }:
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "openrgb";
+<<<<<<< HEAD
   version = "0.9-git";
+=======
+  version = "1.0-rc-git";
+>>>>>>> e467f61 (sync)
 
   src = fetchFromGitLab {
     owner = "CAlcProgrammer1";
@@ -42,7 +50,11 @@ stdenv.mkDerivation (finalAttrs: {
 
   postPatch = ''
     patchShebangs scripts/build-udev-rules.sh
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> e467f61 (sync)
     # Fix /usr/bin/env in generated udev rules
     substituteInPlace scripts/build-udev-rules.sh \
       --replace-fail '/usr/bin/env chmod' '${coreutils}/bin/chmod'
@@ -68,7 +80,16 @@ stdenv.mkDerivation (finalAttrs: {
 
   postFixup = ''
     wrapQtApp $out/bin/openrgb \
+<<<<<<< HEAD
       --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath [ openal pipewire ]}
+=======
+      --prefix LD_LIBRARY_PATH : ${
+        lib.makeLibraryPath [
+          openal
+          pipewire
+        ]
+      }
+>>>>>>> e467f61 (sync)
   '';
 
   doInstallCheck = true;
