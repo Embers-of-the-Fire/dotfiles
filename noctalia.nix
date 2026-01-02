@@ -8,6 +8,7 @@
         position = "top";
         density = "default";
         backgroundOpacity = 0.6;
+        useSeparateOpacity = true;
         monitors = [
           "DP-1"
           "DP-2"
