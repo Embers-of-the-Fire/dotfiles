@@ -311,6 +311,7 @@ in
     ffmpeg
     gh
     go
+    tokei
     syncthing
     sqlite
     sqlite-utils

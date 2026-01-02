@@ -9,8 +9,8 @@
         density = "comfortable";
         backgroundOpacity = 0.2;
         monitors = [
+          "DP-1"
           "DP-2"
-          "DP-3"
         ];
         widgets = {
           left = [
@@ -88,14 +88,19 @@
         enabled = false;
         monitorDirectories = [
           {
+            name = "DP-1";
+            directory = "/home/admin/Theme/Wallpaper";
+            wallpaper = "DP-1.png";
+          }
+          {
             name = "DP-2";
             directory = "/home/admin/Theme/Wallpaper";
             wallpaper = "DP-2.png";
           }
           {
-            name = "HDMI-A-3";
+            name = "HDMI-A-2";
             directory = "/home/admin/Theme/Wallpaper";
-            wallpaper = "HDMI-A-3.png";
+            wallpaper = "HDMI-A-2.png";
           }
         ];
         setWallpaperOnAllMonitors = false;
@@ -103,10 +108,10 @@
       network.wifiEnabled = true;
       notifications = {
         respectExpireTimeout = true;
-        monitors = [ "DP-2" ];
+        monitors = [ "DP-1" ];
       };
       osd = {
-        monitors = [ "DP-2" ];
+        monitors = [ "DP-1" ];
       };
       colorSchemes = {
         useWallpaperColors = true;

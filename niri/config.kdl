@@ -72,7 +72,7 @@ input {
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Outputs
 
-output "DP-2" {
+output "DP-1" {
     mode "3840x2160@144"
     scale 1.5
     transform "normal"
@@ -80,14 +80,14 @@ output "DP-2" {
     focus-at-startup
 }
 
-output "DP-3" {
+output "DP-2" {
     mode "3840x2160@60.000"
     scale 1.5
     transform "normal"
     position x=0 y=510
 }
 
-output "HDMI-A-3" {
+output "HDMI-A-2" {
     mode "2560x1440@100.000"
     scale 1.2
     transform "90"
@@ -355,7 +355,7 @@ window-rule {
     match app-id="steam_app_3548580"
     default-column-width { proportion 1.0; }
     default-window-height { proportion 1.0; }
-    open-on-output "HDMI-A-5"
+    open-on-output "HDMI-A-1"
 }
 
 // Example: block out two password managers from screen capture.
