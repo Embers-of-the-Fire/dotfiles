@@ -6,8 +6,8 @@
     settings = {
       bar = {
         position = "top";
-        density = "comfortable";
-        backgroundOpacity = 0.2;
+        density = "default";
+        backgroundOpacity = 0.6;
         monitors = [
           "DP-1"
           "DP-2"
@@ -17,6 +17,7 @@
             {
               id = "SystemMonitor";
               usePrimaryColor = false;
+              compactMode = false;
               showCpuUsage = true;
               showCpuTemp = true;
               showMemoryUsage = true;
@@ -78,11 +79,6 @@
         enableClipboardHistory = true;
         terminalCommand = "alacritty -e";
         viewMode = "grid";
-      };
-      systemMonnitor = {
-        tempWarningThreshold = 75;
-        tempCriticalThreshold = 85;
-        compactMode = false;
       };
       wallpaper = {
         enabled = false;
