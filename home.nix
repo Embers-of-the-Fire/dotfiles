@@ -277,6 +277,7 @@ in
         --wayland-text-input-version=3
       '';
     })
+    resources
     foxglove-studio
     mpv
     losslesscut-bin
@@ -305,6 +306,11 @@ in
     libreoffice
     jetbrains.idea
     jetbrains.webstorm
+    jetbrains.pycharm
+    jetbrains.clion
+    jetbrains.goland
+    jetgrains.rustrover
+    jetbrains.android-studio
     conda
     nixfmt
     postman
