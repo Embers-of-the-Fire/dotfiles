@@ -309,7 +309,7 @@ in
     jetbrains.pycharm
     jetbrains.clion
     jetbrains.goland
-    jetgrains.rustrover
+    jetbrains.rustrover
     jetbrains.android-studio
     conda
     nixfmt
