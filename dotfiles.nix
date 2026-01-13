@@ -7,24 +7,16 @@
 
 {
   xdg.configFile = {
-    "niri/config.kdl" = {
-      # source = ./niri/config.kdl;
-      source = ./niri/config.dms.kdl;
-      force = true;
-    };
+    # "niri/config.kdl" = {
+    # # source = ./niri/config.kdl;
+    #   source = ./niri/config.dms.kdl;
+    #   force = true;
+    # };
     "niri/wallpaper.fish" = {
       source = ./niri/wallpaper.fish;
       executable = true;
     };
-    "niri/clipboard.zsh" = {
-      source = ./niri/clipboard.zsh;
-      executable = true;
-    };
     "starship.toml".source = ./starship.toml;
-    "waybar" = {
-      source = ./waybar;
-      recursive = true;
-    };
     "rofi/themes" = {
       source = ./rofi/themes;
       recursive = true;

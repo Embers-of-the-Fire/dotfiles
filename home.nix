@@ -31,6 +31,7 @@ in
     ./dotfiles.nix
     ./fonts.nix
     ./vscode-settings.nix
+    ./niri/config.dms.nix
   ];
 
   programs.fuzzel.enable = true;
@@ -242,7 +243,7 @@ in
   dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
 
   home.packages = with pkgs; [
-    swaybg
+    android-tools
     firefox-bin
     networkmanagerapplet
     kitty

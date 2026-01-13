@@ -6,19 +6,21 @@
   programs.dank-material-shell = {
     enable = true;
     niri = {
-      enableKeybinds = true;
       enableSpawn = true;
+      includes = {
+        enable = true;
+        override = true;
+      };
     };
 
     enableAudioWavelength = true;
     enableCalendarEvents = true;
-    enableClipboard = true;
+    enableDynamicTheming = true;
     enableSystemMonitoring = true;
     enableVPN = true;
 
-    default.settings = {
+    settings = {
       theme = "dark";
-      dynamicThemeing = true;
     };
   };
 }
