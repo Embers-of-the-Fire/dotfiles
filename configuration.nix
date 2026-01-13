@@ -324,16 +324,6 @@ in
     libGL
   ];
 
-  programs.coolercontrol.enable = true;
-  systemd.services.coolercontrol = {
-    wantedBy = [ "multi-user.target" ];
-    before = [
-      "display-manager.service"
-      "greetd.service"
-    ];
-    after = [ "network.target" ];
-  };
-
   programs.neovim = {
     enable = true;
     defaultEditor = true;
