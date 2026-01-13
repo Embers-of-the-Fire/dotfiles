@@ -3,7 +3,7 @@
 {
   systemd.user.services.niri-flake-polkit.enable = false;
 
-  programs.dankMaterialShell = {
+  programs.dank-material-shell = {
     enable = true;
     niri = {
       enableKeybinds = true;
@@ -13,7 +13,6 @@
     enableAudioWavelength = true;
     enableCalendarEvents = true;
     enableClipboard = true;
-    enableDynamicThemeing = true;
     enableSystemMonitoring = true;
     enableVPN = true;
 
