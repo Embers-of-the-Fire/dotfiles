@@ -8,6 +8,7 @@ let
     "layout"
     "outputs"
     "wpblur"
+    "cursor"
   ];
 in
 {
