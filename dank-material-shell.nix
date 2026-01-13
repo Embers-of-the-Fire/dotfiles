@@ -1,16 +1,26 @@
 { pkgs, ... }:
 
+let
+  includeFiles = [
+    "alttab"
+    "binds"
+    "colors"
+    "layout"
+    "outputs"
+    "wpblur"
+  ];
+in
 {
   programs.niri.package = pkgs.niri-unstable;
 
-  xdg.configFile = {
-    "alttab".text = "";
-    "binds".text = "";
-    "colors".text = "";
-    "layout".text = "";
-    "outputs".text = "";
-    "wpblur".text = "";
-  };
+  xdg.configFile = builtins.listToAttrs (
+    map (name: {
+      name = "niri/dms/${name}.kdl";
+      value = {
+        text = "";
+      };
+    }) includeFiles
+  );
 
   programs.dank-material-shell = {
     enable = true;
@@ -20,14 +30,7 @@
         enable = true;
         override = true;
         originalFileName = "niri-flake";
-        filesToInclude = [
-          "alttab"
-          "binds"
-          "colors"
-          "layout"
-          "outputs"
-          "wpblur"
-        ];
+        filesToInclude = includeFiles;
       };
     };
 
