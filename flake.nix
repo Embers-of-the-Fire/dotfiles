@@ -53,8 +53,8 @@
                 lazyvim.homeManagerModules.default
                 inputs.noctalia.homeModules.default
                 ./noctalia.nix
-                inputs.dms.homeModules.dank-material-shell.default
-                inputs.dms.homeModules.dank-material-shell.niri
+                inputs.dms.homeModules.dank-material-shell
+                inputs.dms.homeModules.niri
                 ./dank-material-shell.nix
                 ./home.nix
               ];
