@@ -50,6 +50,15 @@
                 quickshell = prev.quickshell.overrideAttrs (old: {
                   stdenv = prev.llvmPackages_latest.stdenv;
                 });
+                dms-shell = prev.dms-shell.overrideAttrs (old: {
+                  ldflags = [
+                    "-s"
+                    "-w"
+                    "-X main.Version=${
+                      builtins.replaceStrings [ "-" "_" ] [ "date=" "" ] (builtins.elemAt old.ldflags 2)
+                    }"
+                  ];
+                });
               })
             ];
           }
