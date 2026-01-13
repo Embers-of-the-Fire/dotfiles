@@ -6,10 +6,11 @@ let
     "binds"
     "colors"
     "layout"
-    "outputs"
+    # "outputs"
     "wpblur"
     "cursor"
   ];
+  settingsExported = import ./dank-material-shell-settings.nix;
 in
 {
   programs.niri.package = pkgs.niri-unstable;
@@ -41,21 +42,27 @@ in
     enableSystemMonitoring = true;
     enableVPN = true;
 
-    settings = {
-      theme = "dark";
-      isLightMode = false;
-    };
-
     managePluginSettings = true;
 
     plugins = {
       commandRunner.enable = true;
       dankLauncherKeys.enable = true;
-      powerUsagePlugin.enable = true;
       nixMonitor.enable = true;
       appShortcut.enable = true;
       dockerManager.enable = true;
       niriWindows.enable = true;
+    };
+
+    settings = settingsExported ++ {
+      theme = "dark";
+      isLightMode = false;
+
+      wallpaperPath = "/home/admin/Theme/Wallpaper/DP-1.png";
+      nightModeEnabled = true;
+
+      nvidiaTempEnabled = true;
+
+      disableWallpaper = true;
     };
   };
 }
