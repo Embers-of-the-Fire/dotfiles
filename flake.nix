@@ -25,6 +25,10 @@
       url = "github:AvengeMedia/dms-plugin-registry";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-monitor = {
+      url = "github:antonjah/nix-monitor";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -57,6 +61,7 @@
           ./chinese.nix
           self.nixosModules.udevRule
           inputs.distro-grub-themes.nixosModules.${system}.default
+          inputs.nix-monitor.homeManagerModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

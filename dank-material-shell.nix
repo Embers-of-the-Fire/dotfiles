@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 let
   includeFiles = [
@@ -47,22 +47,24 @@ in
     plugins = {
       commandRunner.enable = true;
       dankLauncherKeys.enable = true;
-      nixMonitor.enable = true;
       appShortcut.enable = true;
       dockerManager.enable = true;
       niriWindows.enable = true;
     };
 
-    settings = settingsExported ++ {
-      theme = "dark";
-      isLightMode = false;
+    settings = lib.attrsets.mergeAttrsList [
+      settingsExported
+      {
+        theme = "dark";
+        isLightMode = false;
 
-      wallpaperPath = "/home/admin/Theme/Wallpaper/DP-1.png";
-      nightModeEnabled = true;
+        wallpaperPath = "/home/admin/Theme/Wallpaper/DP-1.png";
+        nightModeEnabled = true;
 
-      nvidiaTempEnabled = true;
+        nvidiaTempEnabled = true;
 
-      disableWallpaper = true;
-    };
+        disableWallpaper = true;
+      }
+    ];
   };
 }

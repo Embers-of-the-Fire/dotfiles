@@ -404,10 +404,6 @@
       ];
       rightWidgets = [
         {
-          id = "nixMonitor";
-          enabled = true;
-        }
-        {
           id = "dockerManager";
           enabled = true;
         }
@@ -557,10 +553,6 @@
         }
       ];
       rightWidgets = [
-        {
-          id = "nixMonitor";
-          enabled = true;
-        }
         {
           id = "dockerManager";
           enabled = true;
