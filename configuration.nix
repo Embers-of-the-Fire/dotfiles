@@ -240,7 +240,7 @@ in
 
   xdg.portal = {
     enable = true;
-    configPackages = [ pkgs.niri ];
+    configPackages = [ pkgs.niri-unstable ];
   };
 
   # Enable touchpad support (enabled default in most desktopManager).

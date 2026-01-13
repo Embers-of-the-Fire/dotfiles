@@ -21,6 +21,10 @@
       url = "github:AvengeMedia/DankMaterialShell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    dms-plugin-registry = {
+      url = "github:AvengeMedia/dms-plugin-registry";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -55,6 +59,7 @@
                 inputs.noctalia.homeModules.default
                 ./noctalia.nix
                 inputs.dms.homeModules.dank-material-shell
+                inputs.dms-plugin-registry.modules.default
                 inputs.dms.homeModules.niri
                 ./dank-material-shell.nix
                 ./home.nix

@@ -20,5 +20,17 @@
     settings = {
       theme = "dark";
     };
+
+    managePluginSettings = true;
+
+    plugins = {
+      commandRunner.enable = true;
+      dankLauncherKeys.enable = true;
+      powerUsagePlugin.enable = true;
+      nixMonitor.enable = true;
+      appShortcut.enable = true;
+      dockerManager.enable = true;
+      niriWindows.enable = true;
+    };
   };
 }

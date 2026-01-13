@@ -40,6 +40,26 @@
         "type": "github"
       }
     },
+    "dms-plugin-registry": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1768164556,
+        "narHash": "sha256-16FT7ap9uqL1I1l056nwO0MvHJBons4wK9mHsO7fBVI=",
+        "owner": "AvengeMedia",
+        "repo": "dms-plugin-registry",
+        "rev": "55f268608f23828a8b853c058ed4bd255c994763",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AvengeMedia",
+        "repo": "dms-plugin-registry",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -283,6 +303,7 @@
       "inputs": {
         "distro-grub-themes": "distro-grub-themes",
         "dms": "dms",
+        "dms-plugin-registry": "dms-plugin-registry",
         "home-manager": "home-manager",
         "lazyvim": "lazyvim",
         "niri": "niri",
