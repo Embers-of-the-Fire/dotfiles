@@ -237,7 +237,7 @@
       };
 
       "Mod+D" = {
-        show-hotkey-overlay.title = "Toggle App Launcher";
+        hotkey-overlay.title = "Toggle App Launcher";
         repeat = false;
         action.spawn = [
           "dms"
@@ -249,7 +249,7 @@
       };
 
       "Mod+Alt+F" = {
-        show-hotkey-overlay.title = "Toggle Clipboard Manager";
+        hotkey-overlay.title = "Toggle Clipboard Manager";
         repeat = false;
         action.spawn = [
           "dms"
