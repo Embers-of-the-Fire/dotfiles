@@ -44,6 +44,15 @@
         inherit system;
         specialArgs = { inherit inputs; };
         modules = [
+          {
+            nixpkgs.overlays = [
+              (final: prev: {
+                quickshell = prev.quickshell.overrideAttrs (old: {
+                  stdenv = prev.llvmPackages_latest.stdenv;
+                });
+              })
+            ];
+          }
           ./configuration.nix
           ./chinese.nix
           self.nixosModules.udevRule
