@@ -3,6 +3,15 @@
 {
   programs.niri.package = pkgs.niri-unstable;
 
+  xdg.configFile = {
+    "alttab".text = "";
+    "binds".text = "";
+    "colors".text = "";
+    "layout".text = "";
+    "outputs".text = "";
+    "wpblur".text = "";
+  };
+
   programs.dank-material-shell = {
     enable = true;
     niri = {
@@ -10,6 +19,7 @@
       includes = {
         enable = true;
         override = true;
+        originalFileName = "niri-flake";
         filesToInclude = [
           "alttab"
           "binds"
