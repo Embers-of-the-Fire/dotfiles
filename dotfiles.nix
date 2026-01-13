@@ -1,9 +1,15 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   xdg.configFile = {
     "niri/config.kdl" = {
-      source = ./niri/config.kdl;
+      # source = ./niri/config.kdl;
+      source = ./niri/config.dms.kdl;
       force = true;
     };
     "niri/wallpaper.fish" = {
@@ -15,7 +21,10 @@
       executable = true;
     };
     "starship.toml".source = ./starship.toml;
-    "waybar" = { source = ./waybar; recursive = true; };
+    "waybar" = {
+      source = ./waybar;
+      recursive = true;
+    };
     "rofi/themes" = {
       source = ./rofi/themes;
       recursive = true;
@@ -32,4 +41,3 @@
     "application/pdf" = "org.pwmt.zathura.desktop";
   };
 }
-

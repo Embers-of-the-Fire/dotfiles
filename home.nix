@@ -22,6 +22,7 @@ let
           --replace 'Exec=QGroundControl' 'Exec=qgroundcontrol'
       '';
   } { inherit inputs; };
+  latex = pkgs.texlive.combined.scheme-medium;
 in
 {
   home.stateVersion = "24.11";
@@ -321,5 +322,6 @@ in
     syncthing
     sqlite
     sqlite-utils
+    latex
   ];
 }

@@ -35,6 +35,7 @@
           pkief.material-icon-theme
           rust-lang.rust-analyzer
           golang.go
+          mathematic.vscode-latex
         ];
         globalSnippets = {
           fixme = {

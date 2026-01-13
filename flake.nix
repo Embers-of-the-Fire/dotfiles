@@ -17,36 +17,51 @@
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-  };
-
-  outputs = inputs@{ self, nixpkgs, home-manager, lazyvim, ... }:
-  let
-    system = "x86_64-linux";
-  in {
-    nixosModules.udevRule = import ./udev.nix;
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem rec {
-      inherit system;
-      specialArgs = { inherit inputs; };
-      modules = [
-        ./configuration.nix
-        ./chinese.nix
-        self.nixosModules.udevRule
-        inputs.distro-grub-themes.nixosModules.${system}.default
-        home-manager.nixosModules.home-manager {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.admin = {
-            imports = [
-              lazyvim.homeManagerModules.default
-              inputs.noctalia.homeModules.default
-              ./noctalia.nix
-              ./home.nix
-            ];
-          };
-          home-manager.backupFileExtension = ".bak";
-        }
-      ];
+    dms = {
+      url = "github:AvengeMedia/DankMaterialShell";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-}
 
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      home-manager,
+      lazyvim,
+      ...
+    }:
+    let
+      system = "x86_64-linux";
+    in
+    {
+      nixosModules.udevRule = import ./udev.nix;
+      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem rec {
+        inherit system;
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./configuration.nix
+          ./chinese.nix
+          self.nixosModules.udevRule
+          inputs.distro-grub-themes.nixosModules.${system}.default
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.admin = {
+              imports = [
+                lazyvim.homeManagerModules.default
+                inputs.noctalia.homeModules.default
+                ./noctalia.nix
+                inputs.dms.homeModules.dankMaterialShell.default
+                inputs.dms.homeModules.dankMaterialShell.niri
+                ./dank-material-shell.nix
+                ./home.nix
+              ];
+            };
+            home-manager.backupFileExtension = ".bak";
+          }
+        ];
+      };
+    };
+}
