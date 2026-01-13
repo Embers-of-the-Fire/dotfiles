@@ -10,6 +10,14 @@
       includes = {
         enable = true;
         override = true;
+        filesToInclude = [
+          "alttab"
+          "binds"
+          "colors"
+          "layout"
+          "outputs"
+          "wpblur"
+        ];
       };
     };
 
@@ -21,6 +29,7 @@
 
     settings = {
       theme = "dark";
+      isLightMode = false;
     };
 
     managePluginSettings = true;
