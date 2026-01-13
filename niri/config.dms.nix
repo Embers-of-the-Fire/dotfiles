@@ -20,8 +20,8 @@
     outputs = {
       "DP-1" = {
         mode = {
-          height = 3840;
-          width = 2160;
+          width = 3840;
+          height = 2160;
           refresh = 144.0;
         };
         scale = 1.5;
@@ -34,8 +34,8 @@
 
       "DP-2" = {
         mode = {
-          height = 3840;
-          width = 2160;
+          width = 3840;
+          height = 2160;
           refresh = 60.0;
         };
         scale = 1.5;
