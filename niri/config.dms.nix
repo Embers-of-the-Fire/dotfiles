@@ -236,6 +236,30 @@
         action.close-window = { };
       };
 
+      "Mod+D" = {
+        show-hotkey-overlay.title = "Toggle App Launcher";
+        repeat = false;
+        action.spawn = [
+          "dms"
+          "ipc"
+          "call"
+          "spotlight"
+          "toggle"
+        ];
+      };
+
+      "Mod+Alt+F" = {
+        show-hotkey-overlay.title = "Toggle Clipboard Manager";
+        repeat = false;
+        action.spawn = [
+          "dms"
+          "ipc"
+          "call"
+          "clipboard"
+          "toggle"
+        ];
+      };
+
       "Mod+Left".action.focus-column-left = { };
       "Mod+Down".action.focus-window-down = { };
       "Mod+Up".action.focus-window-up = { };
