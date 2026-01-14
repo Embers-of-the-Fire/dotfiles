@@ -64,7 +64,10 @@ in
 
   programs.dank-material-shell.greeter = {
     enable = true;
-    compositor.name = "niri";
+    compositor = {
+      name = "niri";
+      customConfig = "/etc/niri/config.dms-greet.kdl";
+    };
     configHome = "/home/admin";
     logs = {
       save = true;
@@ -400,6 +403,8 @@ in
   environment.etc."issue".text = ''
     <<< Welcome to ${config.system.nixos.distroName} ${config.system.nixos.label} >>>
   '';
+
+  environment.etc."niri/config.dms-greet.kdl".source = ./niri/config.dms-greet.kdl;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
