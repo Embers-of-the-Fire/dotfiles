@@ -22,7 +22,7 @@ let
           --replace 'Exec=QGroundControl' 'Exec=qgroundcontrol'
       '';
   } { inherit inputs; };
-  latex = pkgs.texlive.combined.scheme-medium;
+  latex = pkgs.texlive.combined.scheme-full;
 in
 {
   home.stateVersion = "24.11";

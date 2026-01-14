@@ -23,7 +23,7 @@
   use24HourClock = true;
   showSeconds = false;
   useFahrenheit = false;
-  nightModeEnabled = false;
+  nightModeEnabled = true;
   animationSpeed = 1;
   customAnimationDuration = 500;
   wallpaperFillMode = "Fill";
@@ -64,43 +64,43 @@
   privacyShowScreenShareIcon = false;
   controlCenterWidgets = [
     {
+      enabled = true;
       id = "volumeSlider";
-      enabled = true;
       width = 50;
     }
     {
+      enabled = true;
       id = "brightnessSlider";
-      enabled = true;
       width = 50;
     }
     {
+      enabled = true;
       id = "wifi";
-      enabled = true;
       width = 50;
     }
     {
+      enabled = true;
       id = "bluetooth";
-      enabled = true;
       width = 50;
     }
     {
+      enabled = true;
       id = "audioOutput";
-      enabled = true;
       width = 50;
     }
     {
+      enabled = true;
       id = "audioInput";
-      enabled = true;
       width = 50;
     }
     {
+      enabled = true;
       id = "nightMode";
-      enabled = true;
       width = 50;
     }
     {
-      id = "darkMode";
       enabled = true;
+      id = "darkMode";
       width = 50;
     }
   ];
@@ -154,7 +154,7 @@
       type = "contains";
     }
     {
-      pattern = "^steam_app_(\d+)$";
+      pattern = "^steam_app_(d+)$";
       replacement = "steam_icon_$1";
       type = "regex";
     }
@@ -175,18 +175,20 @@
   vpnLastConnected = "";
   iconTheme = "System Default";
   cursorSettings = {
-    theme = "System Default";
-    size = 24;
-    niri = {
-      hideWhenTyping = false;
-      hideAfterInactiveMs = 0;
+    dwl = {
+      cursorHideTimeout = 0;
     };
     hyprland = {
       hideOnKeyPress = false;
       hideOnTouch = false;
       inactiveTimeout = 0;
     };
-    dwl.cursorHideTimeout = 0;
+    niri = {
+      hideAfterInactiveMs = 0;
+      hideWhenTyping = false;
+    };
+    size = 24;
+    theme = "System Default";
   };
   launcherLogoMode = "apps";
   launcherLogoCustomPath = "";
@@ -283,7 +285,7 @@
   lockScreenShowPasswordField = true;
   enableFprint = false;
   maxFprintTries = 15;
-  lockScreenActiveMonitor = "all";
+  lockScreenActiveMonitor = "DP-1";
   lockScreenInactiveColor = "#000000";
   lockScreenNotificationMode = 2;
   hideBrightnessSlider = false;
@@ -331,327 +333,329 @@
   updaterCustomCommand = "";
   updaterTerminalAdditionalParams = "";
   displayNameMode = "system";
-  screenPreferences.wallpaper = [ ];
+  screenPreferences = {
+    wallpaper = [ ];
+  };
   showOnLastDisplay = { };
   niriOutputSettings = { };
   hyprlandOutputSettings = { };
   barConfigs = [
     {
-      id = "default";
-      name = "Main Bar";
-      enabled = true;
-      position = 1;
-      screenPreferences = [
+      autoHide = false;
+      autoHideDelay = 250;
+      borderColor = "surfaceText";
+      borderEnabled = false;
+      borderOpacity = 1;
+      borderThickness = 1;
+      bottomGap = 0;
+      centerWidgets = [
         {
-          name = "DP-1";
-          model = "U27E11X";
+          enabled = true;
+          id = "music";
         }
         {
-          name = "DP-2";
+          enabled = true;
+          id = "focusedWindow";
+        }
+        {
+          enabled = true;
+          id = "privacyIndicator";
+        }
+      ];
+      enabled = true;
+      fontScale = 1;
+      gothCornerRadiusOverride = false;
+      gothCornerRadiusValue = 12;
+      gothCornersEnabled = false;
+      id = "default";
+      innerPadding = 4;
+      leftWidgets = [
+        {
+          enabled = true;
+          id = "launcherButton";
+        }
+        {
+          enabled = true;
+          id = "workspaceSwitcher";
+        }
+        {
+          enabled = true;
+          id = "cpuUsage";
+        }
+        {
+          enabled = true;
+          id = "cpuTemp";
+        }
+        {
+          enabled = true;
+          id = "gpuTemp";
+          pciId = "10de:2b8c";
+          selectedGpuIndex = 0;
+        }
+        {
+          enabled = true;
+          id = "memUsage";
+        }
+        {
+          enabled = true;
+          id = "diskUsage";
+        }
+        {
+          enabled = true;
+          id = "network_speed_monitor";
+        }
+      ];
+      name = "Main Bar";
+      noBackground = false;
+      openOnOverview = false;
+      popupGapsAuto = true;
+      popupGapsManual = 4;
+      position = 1;
+      rightWidgets = [
+        {
+          enabled = true;
+          id = "dockerManager";
+        }
+        {
+          enabled = true;
+          id = "spacer";
+          size = 20;
+        }
+        {
+          enabled = true;
+          id = "systemTray";
+        }
+        {
+          enabled = true;
+          id = "spacer";
+          size = 20;
+        }
+        {
+          enabled = true;
+          id = "clipboard";
+        }
+        {
+          enabled = true;
+          id = "notificationButton";
+        }
+        {
+          enabled = true;
+          id = "notepadButton";
+        }
+        {
+          enabled = true;
+          id = "spacer";
+          size = 20;
+        }
+        {
+          enabled = true;
+          id = "clock";
+        }
+        {
+          enabled = true;
+          id = "weather";
+        }
+        {
+          enabled = true;
+          id = "spacer";
+          size = 20;
+        }
+        {
+          enabled = true;
+          id = "battery";
+        }
+        {
+          enabled = true;
+          id = "idleInhibitor";
+        }
+        {
+          enabled = true;
+          id = "controlCenterButton";
+        }
+        {
+          enabled = true;
+          id = "powerMenuButton";
+        }
+      ];
+      screenPreferences = [
+        {
+          model = "U27E11X";
+          name = "DP-1";
+        }
+        {
           model = "OF27U";
+          name = "DP-2";
         }
       ];
       showOnLastDisplay = false;
-      leftWidgets = [
-        {
-          id = "launcherButton";
-          enabled = true;
-        }
-        {
-          id = "workspaceSwitcher";
-          enabled = true;
-        }
-        {
-          id = "cpuUsage";
-          enabled = true;
-        }
-        {
-          id = "cpuTemp";
-          enabled = true;
-        }
-        {
-          id = "gpuTemp";
-          enabled = true;
-          selectedGpuIndex = 0;
-          pciId = "10de:2b8c";
-        }
-        {
-          id = "memUsage";
-          enabled = true;
-        }
-        {
-          id = "diskUsage";
-          enabled = true;
-        }
-        {
-          id = "network_speed_monitor";
-          enabled = true;
-        }
-      ];
-      centerWidgets = [
-        {
-          id = "music";
-          enabled = true;
-        }
-        {
-          id = "focusedWindow";
-          enabled = true;
-        }
-        {
-          id = "privacyIndicator";
-          enabled = true;
-        }
-      ];
-      rightWidgets = [
-        {
-          id = "dockerManager";
-          enabled = true;
-        }
-        {
-          id = "spacer";
-          enabled = true;
-          size = 20;
-        }
-        {
-          id = "systemTray";
-          enabled = true;
-        }
-        {
-          id = "spacer";
-          enabled = true;
-          size = 20;
-        }
-        {
-          id = "clipboard";
-          enabled = true;
-        }
-        {
-          id = "notificationButton";
-          enabled = true;
-        }
-        {
-          id = "notepadButton";
-          enabled = true;
-        }
-        {
-          id = "spacer";
-          enabled = true;
-          size = 20;
-        }
-        {
-          id = "clock";
-          enabled = true;
-        }
-        {
-          id = "weather";
-          enabled = true;
-        }
-        {
-          id = "spacer";
-          enabled = true;
-          size = 20;
-        }
-        {
-          id = "battery";
-          enabled = true;
-        }
-        {
-          id = "idleInhibitor";
-          enabled = true;
-        }
-        {
-          id = "controlCenterButton";
-          enabled = true;
-        }
-        {
-          id = "powerMenuButton";
-          enabled = true;
-        }
-      ];
       spacing = 4;
-      innerPadding = 4;
-      bottomGap = 0;
-      transparency = 1;
-      widgetTransparency = 1;
       squareCorners = false;
-      noBackground = false;
-      gothCornersEnabled = false;
-      gothCornerRadiusOverride = false;
-      gothCornerRadiusValue = 12;
-      borderEnabled = false;
-      borderColor = "surfaceText";
-      borderOpacity = 1;
-      borderThickness = 1;
-      fontScale = 1;
-      autoHide = false;
-      autoHideDelay = 250;
-      openOnOverview = false;
+      transparency = 1;
       visible = true;
-      popupGapsAuto = true;
-      popupGapsManual = 4;
+      widgetTransparency = 1;
     }
     {
-      id = "bar1768336133950";
-      name = "Bar 2";
-      enabled = true;
-      position = 2;
-      screenPreferences = [
-        {
-          name = "HDMI-A-2";
-          model = "HP24QI";
-        }
-      ];
-      showOnLastDisplay = false;
-      leftWidgets = [
-        {
-          id = "launcherButton";
-          enabled = true;
-        }
-        {
-          id = "workspaceSwitcher";
-          enabled = true;
-        }
-        {
-          id = "cpuUsage";
-          enabled = true;
-        }
-        {
-          id = "cpuTemp";
-          enabled = true;
-        }
-        {
-          id = "gpuTemp";
-          enabled = true;
-          selectedGpuIndex = 0;
-          pciId = "10de:2b8c";
-        }
-        {
-          id = "memUsage";
-          enabled = true;
-        }
-        {
-          id = "diskUsage";
-          enabled = true;
-        }
-        {
-          id = "network_speed_monitor";
-          enabled = true;
-        }
-      ];
-      centerWidgets = [
-        {
-          id = "music";
-          enabled = true;
-        }
-        {
-          id = "focusedWindow";
-          enabled = true;
-        }
-        {
-          id = "privacyIndicator";
-          enabled = true;
-        }
-      ];
-      rightWidgets = [
-        {
-          id = "dockerManager";
-          enabled = true;
-        }
-        {
-          id = "spacer";
-          enabled = true;
-          size = 20;
-        }
-        {
-          id = "systemTray";
-          enabled = true;
-        }
-        {
-          id = "spacer";
-          enabled = true;
-          size = 20;
-        }
-        {
-          id = "clipboard";
-          enabled = true;
-        }
-        {
-          id = "notificationButton";
-          enabled = true;
-        }
-        {
-          id = "notepadButton";
-          enabled = true;
-        }
-        {
-          id = "spacer";
-          enabled = true;
-          size = 20;
-        }
-        {
-          id = "clock";
-          enabled = true;
-        }
-        {
-          id = "weather";
-          enabled = true;
-        }
-        {
-          id = "spacer";
-          enabled = true;
-          size = 20;
-        }
-        {
-          id = "battery";
-          enabled = true;
-        }
-        {
-          id = "idleInhibitor";
-          enabled = true;
-        }
-        {
-          id = "controlCenterButton";
-          enabled = true;
-        }
-        {
-          id = "powerMenuButton";
-          enabled = true;
-        }
-      ];
-      spacing = 4;
-      innerPadding = 4;
-      bottomGap = 0;
-      transparency = 1;
-      widgetTransparency = 1;
-      squareCorners = false;
-      noBackground = false;
-      gothCornersEnabled = false;
-      gothCornerRadiusOverride = false;
-      gothCornerRadiusValue = 12;
-      borderEnabled = false;
-      borderColor = "surfaceText";
-      borderOpacity = 1;
-      borderThickness = 1;
-      widgetOutlineEnabled = false;
-      widgetOutlineColor = "primary";
-      widgetOutlineOpacity = 1;
-      widgetOutlineThickness = 1;
-      fontScale = 1;
       autoHide = false;
       autoHideDelay = 250;
-      showOnWindowsOpen = false;
+      borderColor = "surfaceText";
+      borderEnabled = false;
+      borderOpacity = 1;
+      borderThickness = 1;
+      bottomGap = 0;
+      centerWidgets = [
+        {
+          enabled = true;
+          id = "music";
+        }
+        {
+          enabled = true;
+          id = "focusedWindow";
+        }
+        {
+          enabled = true;
+          id = "privacyIndicator";
+        }
+      ];
+      enabled = true;
+      fontScale = 1;
+      gothCornerRadiusOverride = false;
+      gothCornerRadiusValue = 12;
+      gothCornersEnabled = false;
+      id = "bar1768336133950";
+      innerPadding = 4;
+      leftWidgets = [
+        {
+          enabled = true;
+          id = "launcherButton";
+        }
+        {
+          enabled = true;
+          id = "workspaceSwitcher";
+        }
+        {
+          enabled = true;
+          id = "cpuUsage";
+        }
+        {
+          enabled = true;
+          id = "cpuTemp";
+        }
+        {
+          enabled = true;
+          id = "gpuTemp";
+          pciId = "10de:2b8c";
+          selectedGpuIndex = 0;
+        }
+        {
+          enabled = true;
+          id = "memUsage";
+        }
+        {
+          enabled = true;
+          id = "diskUsage";
+        }
+        {
+          enabled = true;
+          id = "network_speed_monitor";
+        }
+      ];
+      maximizeDetection = true;
+      name = "Bar 2";
+      noBackground = false;
       openOnOverview = false;
-      visible = true;
       popupGapsAuto = true;
       popupGapsManual = 4;
-      maximizeDetection = true;
+      position = 2;
+      rightWidgets = [
+        {
+          enabled = true;
+          id = "dockerManager";
+        }
+        {
+          enabled = true;
+          id = "spacer";
+          size = 20;
+        }
+        {
+          enabled = true;
+          id = "systemTray";
+        }
+        {
+          enabled = true;
+          id = "spacer";
+          size = 20;
+        }
+        {
+          enabled = true;
+          id = "clipboard";
+        }
+        {
+          enabled = true;
+          id = "notificationButton";
+        }
+        {
+          enabled = true;
+          id = "notepadButton";
+        }
+        {
+          enabled = true;
+          id = "spacer";
+          size = 20;
+        }
+        {
+          enabled = true;
+          id = "clock";
+        }
+        {
+          enabled = true;
+          id = "weather";
+        }
+        {
+          enabled = true;
+          id = "spacer";
+          size = 20;
+        }
+        {
+          enabled = true;
+          id = "battery";
+        }
+        {
+          enabled = true;
+          id = "idleInhibitor";
+        }
+        {
+          enabled = true;
+          id = "controlCenterButton";
+        }
+        {
+          enabled = true;
+          id = "powerMenuButton";
+        }
+      ];
+      screenPreferences = [
+        {
+          model = "HP24QI";
+          name = "HDMI-A-2";
+        }
+      ];
       scrollEnabled = true;
       scrollXBehavior = "column";
       scrollYBehavior = "workspace";
-      shadowIntensity = 0;
-      shadowOpacity = 60;
       shadowColorMode = "text";
       shadowCustomColor = "#000000";
+      shadowIntensity = 0;
+      shadowOpacity = 60;
+      showOnLastDisplay = false;
+      showOnWindowsOpen = false;
+      spacing = 4;
+      squareCorners = false;
+      transparency = 1;
+      visible = true;
+      widgetOutlineColor = "primary";
+      widgetOutlineEnabled = false;
+      widgetOutlineOpacity = 1;
+      widgetOutlineThickness = 1;
+      widgetTransparency = 1;
     }
   ];
   desktopClockEnabled = false;
@@ -725,6 +729,10 @@
   desktopWidgetGridSettings = { };
   desktopWidgetInstances = [ ];
   desktopWidgetGroups = [ ];
-  builtInPluginSettings.dms_settings_search.trigger = "?";
+  builtInPluginSettings = {
+    dms_settings_search = {
+      trigger = "?";
+    };
+  };
   configVersion = 5;
 }
