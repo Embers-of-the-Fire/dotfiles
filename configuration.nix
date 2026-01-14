@@ -66,7 +66,7 @@ in
     enable = true;
     compositor = {
       name = "niri";
-      customConfig = "/etc/niri/config.dms-greet.kdl";
+      customConfig = builtins.readFile ./niri/config.dms-greet.kdl;
     };
     configHome = "/home/admin";
     logs = {
@@ -403,8 +403,6 @@ in
   environment.etc."issue".text = ''
     <<< Welcome to ${config.system.nixos.distroName} ${config.system.nixos.label} >>>
   '';
-
-  environment.etc."niri/config.dms-greet.kdl".source = ./niri/config.dms-greet.kdl;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

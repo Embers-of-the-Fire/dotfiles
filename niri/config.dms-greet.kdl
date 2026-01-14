@@ -39,6 +39,10 @@ output "HDMI-A-2" {
     }
 }
 
+hotkey-overlay {
+    skip-at-startup
+}
+
 output "HDMI-A-1" {
     mode "1920x1200@60.000"
     scale 1.0

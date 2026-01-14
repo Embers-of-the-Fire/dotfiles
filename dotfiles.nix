@@ -12,10 +12,6 @@
     #   source = ./niri/config.dms.kdl;
     #   force = true;
     # };
-    "niri/config.dms-greet.kdl" = {
-      source = ./niri/config.dms-greet.kdl;
-      force = true;
-    };
     "niri/wallpaper.fish" = {
       source = ./niri/wallpaper.fish;
       executable = true;
