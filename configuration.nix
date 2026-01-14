@@ -26,6 +26,8 @@ in
     ./hardware-configuration.nix
     ./extra-fs.nix
     ./machine-dotfiles.nix
+
+    inputs.dms.nixosModules.greeter
   ];
 
   programs.fuse = {
@@ -42,12 +44,12 @@ in
 
   services.greetd = {
     enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --time --asterisks --issue --theme border=magenta;text=cyan;prompt=green;time=red;action=blue;input=red --cmd niri-session";
-        user = "greetd";
-      };
-    };
+    # settings = {
+    #   default_session = {
+    #     command = "${pkgs.tuigreet}/bin/tuigreet --time --asterisks --issue --theme border=magenta;text=cyan;prompt=green;time=red;action=blue;input=red --cmd niri-session";
+    #     user = "greetd";
+    #   };
+    # };
   };
   systemd.services.greetd.serviceConfig = {
     Type = "idle";
@@ -58,6 +60,16 @@ in
     TTYReset = true;
     TTYVHangup = true;
     TTYVDisallocate = true;
+  };
+
+  programs.dank-material-shell.greeter = {
+    enable = true;
+    compositor.name = "niri";
+    configHome = "/home/admin";
+    logs = {
+      save = true;
+      path = "/tmp/dms-greeter.log";
+    };
   };
 
   # Mouse speed
@@ -303,10 +315,6 @@ in
     motherboard = "amd";
     package = openrgb-source;
   };
-  # systemd.services.openrgb.before = [
-  #   "display-manager.service"
-  #   "greetd.service"
-  # ];
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).

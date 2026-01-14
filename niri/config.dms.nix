@@ -235,6 +235,16 @@
         repeat = false;
         action.close-window = { };
       };
+      "Ctrl+Alt+Delete" = {
+        repeat = false;
+        action.spawn = [
+          "dms"
+          "ipc"
+          "call"
+          "powermenu"
+          "toggle"
+        ];
+      };
 
       "Mod+D" = {
         hotkey-overlay.title = "Toggle App Launcher";
