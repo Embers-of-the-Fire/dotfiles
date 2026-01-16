@@ -326,5 +326,6 @@ in
     latex
     flutter
     protobuf
+    protoc-gen-dart
   ];
 }
