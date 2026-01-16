@@ -325,5 +325,6 @@ in
     sqlite-utils
     latex
     flutter
+    protobuf
   ];
 }
