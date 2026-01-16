@@ -324,5 +324,6 @@ in
     sqlite
     sqlite-utils
     latex
+    flutter
   ];
 }
