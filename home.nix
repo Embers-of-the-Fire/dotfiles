@@ -324,7 +324,6 @@ in
     sqlite-utils
     latex
     flutter
-    dart
     protobuf
     protoc-gen-dart
     flutter_rust_bridge_codegen

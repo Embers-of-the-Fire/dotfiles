@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   environment.sessionVariables = {
@@ -11,6 +16,6 @@
     HTTPS_PROXY = "http://localhost:7897";
     ALL_PROXY = "socks5://localhost:7897";
     NO_PROXY = "localhost,127.0.0.1";
+    FLUTTER_ROOT = "${pkgs.flutter}";
   };
 }
-
