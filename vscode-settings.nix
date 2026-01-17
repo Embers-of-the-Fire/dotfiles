@@ -35,6 +35,8 @@
           pkief.material-icon-theme
           rust-lang.rust-analyzer
           golang.go
+          dart-code.flutter
+          alexisvt.flutter-snippets
         ];
         globalSnippets = {
           fixme = {
