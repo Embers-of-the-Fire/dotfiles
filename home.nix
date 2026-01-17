@@ -279,7 +279,6 @@ in
         --wayland-text-input-version=3
       '';
     })
-    resources
     foxglove-studio
     mpv
     losslesscut-bin
