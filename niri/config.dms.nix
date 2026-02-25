@@ -215,7 +215,7 @@
         default-column-width.proportion = 1.0;
         default-window-height.proportion = 1.0;
         open-fullscreen = true;
-        open-onn-output = "HDMI-A-1";
+        open-on-output = "HDMI-A-1";
       }
     ];
 
