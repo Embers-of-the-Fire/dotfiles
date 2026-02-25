@@ -7,6 +7,7 @@
 
 {
   environment.sessionVariables = {
+    NIXPKGS_ALLOW_UNFREE = "1";
     EDITOR = "nvim";
     NIXOS_OZONE_WL = "1";
     # HTTP_PROXY = "http://localhost:10809";
@@ -17,5 +18,6 @@
     ALL_PROXY = "socks5://localhost:7897";
     NO_PROXY = "localhost,127.0.0.1";
     FLUTTER_ROOT = "${pkgs.flutter}";
+    ANDROID_SDK_ROOT = "${pkgs.androidenv.androidPkgs.androidsdk}/libexec/android-sdk";
   };
 }

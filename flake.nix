@@ -13,10 +13,6 @@
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     dms = {
       url = "github:AvengeMedia/DankMaterialShell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -46,11 +42,23 @@
         modules = [
           {
             nixpkgs.overlays = [
-              (final: prev: {
-                quickshell = prev.quickshell.overrideAttrs (old: {
-                  stdenv = prev.llvmPackages_latest.stdenv;
-                });
-              })
+              (
+                final: prev:
+                let
+                  myKhal = final.callPackage ./khal.nix { };
+                in
+                {
+                  quickshell = prev.quickshell.overrideAttrs (old: {
+                    inherit (prev.llvmPackages_latest) stdenv;
+                  });
+                  khal = myKhal;
+                  python3Packages = prev.python3Packages.overrideScope (
+                    pyFinal: pyPrev: {
+                      khal = myKhal;
+                    }
+                  );
+                }
+              )
             ];
           }
           ./configuration.nix
@@ -65,8 +73,6 @@
               imports = [
                 lazyvim.homeManagerModules.default
                 inputs.niri.homeModules.niri
-                inputs.noctalia.homeModules.default
-                ./noctalia.nix
                 inputs.dms.homeModules.dank-material-shell
                 inputs.dms-plugin-registry.modules.default
                 inputs.dms.homeModules.niri

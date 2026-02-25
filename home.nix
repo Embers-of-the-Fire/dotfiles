@@ -23,6 +23,19 @@ let
       '';
   } { inherit inputs; };
   latex = pkgs.texlive.combined.scheme-full;
+  androidComposition = pkgs.androidenv.composeAndroidPackages {
+    platformVersions = [
+      "35"
+    ];
+    abiVersions = [
+      "armeabi-v7a"
+      "arm64-v8a"
+      "x86_64"
+    ];
+    systemImageTypes = [ "default" ];
+    includeCmake = true;
+    includeNDK = true;
+  };
 in
 {
   home.stateVersion = "24.11";
@@ -33,6 +46,10 @@ in
     ./vscode-settings.nix
     ./niri/config.dms.nix
   ];
+
+  home.sessionVariables = {
+    ANDROID_SDK_ROOT = "${androidComposition.androidsdk}/libexec/android-sdk";
+  };
 
   programs.fuzzel.enable = true;
 
@@ -192,6 +209,7 @@ in
     enable = true;
     enableZshIntegration = true;
     enableFishIntegration = true;
+    shellWrapperName = "y";
     keymap = {
       mgr.prepend_keymap = [
         {
@@ -243,7 +261,6 @@ in
   dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
 
   home.packages = with pkgs; [
-    android-tools
     firefox-bin
     networkmanagerapplet
     kitty
@@ -311,7 +328,7 @@ in
     jetbrains.clion
     jetbrains.goland
     jetbrains.rust-rover
-    android-studio
+    android-studio-full
     conda
     nixfmt
     postman
@@ -327,5 +344,15 @@ in
     protobuf
     protoc-gen-dart
     flutter_rust_bridge_codegen
+
+    androidenv.androidPkgs.emulator
+    androidenv.androidPkgs.platform-tools
+    android-tools
+
+    androidComposition.androidsdk
+
+    # androidndkPkgs.binaries
+    # androidndkPkgs.binutils
+    # androidndkPkgs.libraries
   ];
 }

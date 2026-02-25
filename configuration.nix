@@ -80,6 +80,7 @@ in
 
   # Accpet non-free licenses
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.android_sdk.accept_license = true;
 
   # nixpkgs mirror
   nix.settings.substitute = true;
@@ -162,13 +163,15 @@ in
     "modesetting"
   ];
   hardware.nvidia = {
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-    modesetting.enable = true;
-    powerManagement.enable = false;
     open = true;
     nvidiaSettings = true;
+    videoAcceleration = true;
+    powerManagement.enable = false;
+    powerManagement.finegrained = true;
+    modesetting.enable = true;
+
     prime = {
-      sync.enable = true;
+      offload.enable = true;
       nvidiaBusId = "PIC:1:0:0";
       amdgpuBusId = "PCI:15:0:0";
     };
@@ -278,6 +281,8 @@ in
       "video"
       "iio"
       "plugdev"
+      "kvm"
+      "adbusers"
     ]; # Enable ‘sudo’ for the user.
   };
   users.users.greetd = {
@@ -367,7 +372,6 @@ in
     wqy_microhei
     dejavu_fonts
     roboto
-    jetbrains-mono
     open-sans
     maple-mono.CN
     maple-mono.NF-CN
