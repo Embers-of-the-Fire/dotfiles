@@ -23,19 +23,6 @@ let
       '';
   } { inherit inputs; };
   latex = pkgs.texlive.combined.scheme-full;
-  androidComposition = pkgs.androidenv.composeAndroidPackages {
-    platformVersions = [
-      "35"
-    ];
-    abiVersions = [
-      "armeabi-v7a"
-      "arm64-v8a"
-      "x86_64"
-    ];
-    systemImageTypes = [ "default" ];
-    includeCmake = true;
-    includeNDK = true;
-  };
 in
 {
   home.stateVersion = "24.11";
@@ -46,10 +33,6 @@ in
     ./vscode-settings.nix
     ./niri/config.dms.nix
   ];
-
-  home.sessionVariables = {
-    ANDROID_SDK_ROOT = "${androidComposition.androidsdk}/libexec/android-sdk";
-  };
 
   programs.fuzzel.enable = true;
 
@@ -328,7 +311,6 @@ in
     jetbrains.clion
     jetbrains.goland
     jetbrains.rust-rover
-    android-studio-full
     conda
     nixfmt
     postman
@@ -340,19 +322,5 @@ in
     sqlite
     sqlite-utils
     latex
-    flutter
-    protobuf
-    protoc-gen-dart
-    flutter_rust_bridge_codegen
-
-    androidenv.androidPkgs.emulator
-    androidenv.androidPkgs.platform-tools
-    android-tools
-
-    androidComposition.androidsdk
-
-    # androidndkPkgs.binaries
-    # androidndkPkgs.binutils
-    # androidndkPkgs.libraries
   ];
 }

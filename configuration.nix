@@ -14,7 +14,6 @@ let
   rofi-launcher-variant = pkgs.writeShellScriptBin "rofi-launcher-variant" (
     builtins.readFile ./rofi/variant.sh
   );
-  openrgb-source = pkgs.callPackage ./openrgb-source.nix { };
 in
 {
   nixpkgs.overlays = [
@@ -84,7 +83,13 @@ in
 
   # nixpkgs mirror
   nix.settings.substitute = true;
-  nix.settings.substituters = [ "https://mirrors.ustc.edu.cn/nix-channels/store" ];
+  nix.settings.substituters = [
+    "https://mirrors.ustc.edu.cn/nix-channels/store"
+    "https://cache.nixos-cuda.org"
+  ];
+  nix.settings.trusted-public-keys = [
+    "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
+  ];
 
   # flakes support
   nix.settings.experimental-features = [
@@ -316,13 +321,6 @@ in
   # Power management
   services.tuned.enable = true;
   services.upower.enable = true;
-
-  services.hardware.openrgb = {
-    enable = false;
-    # enable = true;
-    motherboard = "amd";
-    package = openrgb-source;
-  };
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).

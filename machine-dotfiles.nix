@@ -1,7 +1,7 @@
 { environment, lib, ... }:
 
 let
-    proxy = "http://127.0.0.1:7897";
+  proxy = "http://127.0.0.1:7897";
 in
 {
   environment = {
@@ -10,18 +10,13 @@ in
     };
   };
   services.udev.customRules = [
-    { name = "99-realsense-libusb";
+    {
+      name = "99-realsense-libusb";
       rules = lib.readFile ./udev/99-realsense-libusb.rules;
     }
-    { name = "99-cuav";
+    {
+      name = "99-cuav";
       rules = lib.readFile ./udev/99-cuav.rules;
-    }
-    { name = "61-msi-mystic-light";
-      rules = lib.readFile ./udev/61-msi-mystic-light.rules;
-    }
-    { name = "61-openrgb-patch";
-      rules = lib.readFile ./udev/61-openrgb-patch.rules;
     }
   ];
 }
-

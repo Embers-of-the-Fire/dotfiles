@@ -17,7 +17,5 @@
     HTTPS_PROXY = "http://localhost:7897";
     ALL_PROXY = "socks5://localhost:7897";
     NO_PROXY = "localhost,127.0.0.1";
-    FLUTTER_ROOT = "${pkgs.flutter}";
-    ANDROID_SDK_ROOT = "${pkgs.androidenv.androidPkgs.androidsdk}/libexec/android-sdk";
   };
 }
