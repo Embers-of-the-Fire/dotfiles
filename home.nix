@@ -174,6 +174,7 @@ in
     enable = true;
     generateCompletions = true;
     interactiveShellInit = ''
+      set GPG_TTY $(tty)
       fastfetch
       eval "$(starship init fish)"
     '';
