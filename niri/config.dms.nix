@@ -168,13 +168,6 @@
           "--no-browser"
         ];
       }
-      {
-        argv = [
-          "fish"
-          "-c"
-          "$HOME/.config/niri/wallpaper.fish"
-        ];
-      }
     ];
 
     hotkey-overlay.hide-not-bound = true;
@@ -182,13 +175,6 @@
     screenshot-path = "~/Pictures/Screenshots/Screenshot_from_%Y-%m-%d_%H-%M-%S.png";
 
     animations.enable = true;
-
-    layer-rules = [
-      {
-        matches = [ { namespace = "^mpvpaper$"; } ];
-        place-within-backdrop = true;
-      }
-    ];
 
     window-rules = [
       {

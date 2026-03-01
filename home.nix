@@ -262,7 +262,6 @@ in
     dust
     biome
     libnotify
-    mpvpaper
     btop
     rustup
     nodejs
@@ -281,7 +280,6 @@ in
       '';
     })
     foxglove-studio
-    mpv
     losslesscut-bin
     aria2
     qgc

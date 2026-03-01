@@ -7,15 +7,6 @@
 
 {
   xdg.configFile = {
-    # "niri/config.kdl" = {
-    # # source = ./niri/config.kdl;
-    #   source = ./niri/config.dms.kdl;
-    #   force = true;
-    # };
-    "niri/wallpaper.fish" = {
-      source = ./niri/wallpaper.fish;
-      executable = true;
-    };
     "starship.toml".source = ./starship.toml;
     "rofi/themes" = {
       source = ./rofi/themes;

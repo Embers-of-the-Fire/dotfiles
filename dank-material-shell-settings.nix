@@ -29,6 +29,11 @@
   wallpaperFillMode = "Fill";
   blurredWallpaperLayer = false;
   blurWallpaperOnOverview = false;
+  monitorWallpapers = {
+    "DP-1" = "/home/admin/Theme/Wallpapers/DP-1.jpg";
+    "DP-2" = "/home/admin/Theme/Wallpapers/DP-2.jpg";
+    "HDMI-A-2" = "/home/admin/Theme/Wallpapers/HDMI-A-2.jpg";
+  };
   showLauncherButton = true;
   showWorkspaceSwitcher = true;
   showFocusedWindow = true;
