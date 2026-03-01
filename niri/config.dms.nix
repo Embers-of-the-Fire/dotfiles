@@ -208,6 +208,10 @@
         open-floating = true;
       }
       {
+        matches = [ { title = "图片查看器"; } ];
+        open-floating = true;
+      }
+      {
         matches = [
           { title = "Chill With You"; }
           { app-id = "steam_app_3548580"; }

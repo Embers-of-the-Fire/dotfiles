@@ -8,3 +8,5 @@ vim.o.expandtab = true
 
 vim.g.lazyvim_python_lsp = "pyright"
 
+vim.o.shell = "fish"
+
