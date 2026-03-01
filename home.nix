@@ -323,5 +323,6 @@ in
     sqlite
     sqlite-utils
     latex
+    claude-code
   ];
 }
