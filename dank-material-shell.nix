@@ -62,8 +62,6 @@ in
         nightModeEnabled = true;
 
         nvidiaTempEnabled = true;
-
-        disableWallpaper = true;
       }
     ];
   };

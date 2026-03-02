@@ -339,7 +339,7 @@
   updaterTerminalAdditionalParams = "";
   displayNameMode = "system";
   screenPreferences = {
-    wallpaper = [ ];
+    wallpaper = [ "all" ];
   };
   showOnLastDisplay = { };
   niriOutputSettings = { };

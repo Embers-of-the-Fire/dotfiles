@@ -303,7 +303,6 @@ in
     helvum
     clang-tools
     openjdk
-    libreoffice
     jetbrains.idea
     jetbrains.webstorm
     jetbrains.pycharm
