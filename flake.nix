@@ -35,7 +35,6 @@
       system = "x86_64-linux";
     in
     {
-      nixosModules.udevRule = import ./udev.nix;
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem rec {
         inherit system;
         specialArgs = { inherit inputs; };
@@ -63,7 +62,6 @@
           }
           ./configuration.nix
           ./chinese.nix
-          self.nixosModules.udevRule
           inputs.distro-grub-themes.nixosModules.${system}.default
           home-manager.nixosModules.home-manager
           {
