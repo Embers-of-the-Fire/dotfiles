@@ -194,7 +194,10 @@
         open-floating = true;
       }
       {
-        matches = [ { title = "图片查看器"; } ];
+        matches = [
+          { title = "图片查看器"; }
+          { title = "图片"; }
+        ];
         open-floating = true;
       }
       {
