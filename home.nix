@@ -238,6 +238,8 @@ in
     ];
   };
 
+  programs.codex.enable = true;
+
   services.mako.enable = true;
   services.swayidle.enable = true;
   services.polkit-gnome.enable = true;

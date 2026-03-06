@@ -5,7 +5,7 @@
   registryThemeVariants = { };
   matugenScheme = "scheme-neutral";
   runUserMatugenTemplates = true;
-  matugenTargetMonitor = "";
+  matugenTargetMonitor = "DP-1";
   popupTransparency = 1;
   dockTransparency = 1;
   widgetBackgroundColor = "sch";
@@ -28,12 +28,7 @@
   customAnimationDuration = 500;
   wallpaperFillMode = "Fill";
   blurredWallpaperLayer = false;
-  blurWallpaperOnOverview = false;
-  monitorWallpapers = {
-    "DP-1" = "/home/admin/Theme/Wallpapers/DP-1.jpg";
-    "DP-2" = "/home/admin/Theme/Wallpapers/DP-2.jpg";
-    "HDMI-A-2" = "/home/admin/Theme/Wallpapers/HDMI-A-2.jpg";
-  };
+  blurWallpaperOnOverview = true;
   showLauncherButton = true;
   showWorkspaceSwitcher = true;
   showFocusedWindow = true;
