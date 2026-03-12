@@ -302,7 +302,6 @@ in
     obsidian
     unrar
     pw-volume
-    helvum
     clang-tools
     openjdk
     jetbrains.idea
