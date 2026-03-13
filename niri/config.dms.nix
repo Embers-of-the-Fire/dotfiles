@@ -15,9 +15,7 @@
       trackpoint.enable = true;
 
       focus-follows-mouse.max-scroll-amount = "0%";
-      warp-mouse-to-focus.enable = true;
       power-key-handling.enable = false;
-      workspace-auto-back-and-forth = true;
     };
 
     outputs = {
