@@ -288,6 +288,7 @@ in
       "plugdev"
       "kvm"
       "adbusers"
+      "networkmanager"
     ]; # Enable ‘sudo’ for the user.
   };
   users.users.greetd = {
