@@ -285,6 +285,7 @@ in
       "docker"
       "video"
       "iio"
+      "dialout"
       "plugdev"
       "kvm"
       "adbusers"
