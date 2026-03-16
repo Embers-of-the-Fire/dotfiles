@@ -10,11 +10,6 @@
   ...
 }:
 
-let
-  rofi-launcher-variant = pkgs.writeShellScriptBin "rofi-launcher-variant" (
-    builtins.readFile ./rofi/variant.sh
-  );
-in
 {
   nixpkgs.overlays = [
     inputs.niri.overlays.niri
@@ -334,7 +329,6 @@ in
     lm_sensors
     liquidctl
     xwayland-satellite
-    rofi-launcher-variant
     gtkgreet
     alacritty
     libGL

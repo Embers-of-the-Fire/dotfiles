@@ -207,12 +207,6 @@ in
     };
   };
 
-  programs.rofi = {
-    enable = true;
-    cycle = true;
-    location = "bottom";
-  };
-
   programs.zellij = {
     enable = true;
     enableZshIntegration = true;

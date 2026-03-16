@@ -8,10 +8,10 @@
 {
   xdg.configFile = {
     "starship.toml".source = ./starship.toml;
-    "rofi/themes" = {
-      source = ./rofi/themes;
-      recursive = true;
-    };
+  };
+  home.file = {
+    ".codex/AGENTS.md".source = ./agents/AGENTS.md;
+    ".claude/CLAUDE.md".source = ./agents/AGENTS.md;
   };
   xdg.mimeApps.enable = true;
   xdg.mimeApps.defaultApplications = {
