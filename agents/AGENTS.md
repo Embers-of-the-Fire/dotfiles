@@ -27,3 +27,4 @@
 - For commands that may destabilize the system (for example `nixos-rebuild switch`, kernel/boot/hardware changes), you **MUST** ask for explicit confirmation first.
 - When possible, prefer safer validation steps before apply steps (for example build/check before switch).
 - If an action could break the system, you **MUST** explain the risk and propose a safer alternative first.
+- You **MUST** not run any commands that might influence remote systems, including `ssh`, `git push`, etc.
