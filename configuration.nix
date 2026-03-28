@@ -10,6 +10,38 @@
   ...
 }:
 
+let
+  fixedClashVerge =
+    let
+      base = pkgs.clash-verge-rev;
+      fixedUnwrapped = base.passthru.unwrapped.overrideAttrs (old: {
+        postPatch = (old.postPatch or "") + ''
+          substituteInPlace $cargoDepsCopy/source-git-4/tao-0.34.5/Cargo.toml \
+            --replace-fail 'tao-macros = { version = "0.1.0", path = "./tao-macros" }' 'tao-macros = "0.1.3"'
+        '';
+      });
+    in
+    base.overrideAttrs (_: {
+      installPhase = ''
+        runHook preInstall
+
+        mkdir -p $out/{bin,share,lib/Clash\ Verge/resources}
+        cp -r ${fixedUnwrapped}/share/* $out/share
+        cp -r ${fixedUnwrapped}/bin/clash-verge $out/bin/clash-verge
+        cp ${base.passthru.service}/bin/clash-verge-service $out/bin/clash-verge-service
+        ln -s ${pkgs.mihomo}/bin/mihomo $out/bin/verge-mihomo
+        ln -s ${pkgs.v2ray-geoip}/share/v2ray/geoip.dat $out/lib/Clash\ Verge/resources/geoip.dat
+        ln -s ${pkgs.v2ray-domain-list-community}/share/v2ray/geosite.dat $out/lib/Clash\ Verge/resources/geosite.dat
+        ln -s ${pkgs.dbip-country-lite.mmdb} $out/lib/Clash\ Verge/resources/Country.mmdb
+
+        runHook postInstall
+      '';
+
+      passthru = base.passthru // {
+        unwrapped = fixedUnwrapped;
+      };
+    });
+in
 {
   nixpkgs.overlays = [
     inputs.niri.overlays.niri
@@ -166,7 +198,7 @@
     open = true;
     nvidiaSettings = true;
     videoAcceleration = true;
-    powerManagement.enable = false;
+    powerManagement.enable = true;
     powerManagement.finegrained = true;
     modesetting.enable = true;
 
@@ -180,6 +212,7 @@
   hardware.graphics.enable32Bit = true;
 
   programs.clash-verge = {
+    package = fixedClashVerge;
     enable = true;
     serviceMode = true;
     tunMode = true;
