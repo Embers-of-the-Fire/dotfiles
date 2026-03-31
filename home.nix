@@ -194,6 +194,11 @@ in
     enableZshIntegration = true;
     enableFishIntegration = true;
     shellWrapperName = "y";
+    settings = {
+      mgr = {
+        show_hidden = true;
+      };
+    };
     keymap = {
       mgr.prepend_keymap = [
         {
