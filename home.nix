@@ -309,6 +309,7 @@ in
     jetbrains.clion
     jetbrains.goland
     jetbrains.rust-rover
+    android-studio
     conda
     nixfmt
     postman
