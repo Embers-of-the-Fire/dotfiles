@@ -239,6 +239,8 @@ in
 
   programs.codex.enable = true;
 
+  programs.opencode.enable = true;
+
   services.mako.enable = true;
   services.swayidle.enable = true;
   services.polkit-gnome.enable = true;
