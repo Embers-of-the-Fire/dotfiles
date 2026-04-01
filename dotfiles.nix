@@ -12,6 +12,7 @@
   home.file = {
     ".codex/AGENTS.md".source = ./agents/AGENTS.md;
     ".claude/CLAUDE.md".source = ./agents/AGENTS.md;
+    ".config/opencode/AGENTS.md".source = ./agents/AGENTS.md;
   };
   xdg.mimeApps.enable = true;
   xdg.mimeApps.defaultApplications = {
