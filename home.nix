@@ -237,8 +237,6 @@ in
     ];
   };
 
-  programs.codex.enable = true;
-
   programs.opencode.enable = true;
 
   services.mako.enable = true;
@@ -246,6 +244,11 @@ in
   services.polkit-gnome.enable = true;
 
   dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+
+  home.shellAliases = {
+    codex = "opencode";
+    claude-code = "opencode";
+  };
 
   home.packages = with pkgs; [
     firefox-bin
@@ -323,6 +326,5 @@ in
     sqlite
     sqlite-utils
     latex
-    claude-code
   ];
 }
