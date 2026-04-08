@@ -34,6 +34,17 @@ in
     ./niri/config.dms.nix
   ];
 
+  programs.qutebrowser = {
+    enable = true;
+    package = pkgs.qutebrowser.overrideAttrs (old: {
+      version = "3.7.0";
+      src = pkgs.fetchurl {
+        url = "https://github.com/qutebrowser/qutebrowser/releases/download/v3.7.0/qutebrowser-3.7.0.tar.gz";
+        hash = "sha256-x/lYhOpeZnXlhAJb6lXP+VDEfXSa/39BX2jaA/zOD5I=";
+      };
+    });
+  };
+
   programs.fuzzel.enable = true;
 
   services.cliphist = {
@@ -263,7 +274,6 @@ in
     kdePackages.ksystemlog
     wayland-utils
     wl-clipboard
-    qutebrowser
     qq
     dust
     biome
