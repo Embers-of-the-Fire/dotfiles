@@ -1,5 +1,17 @@
 # Global Agent Configuration
 
+## Git Signature
+
+- If the user requires you to commit changes,
+  you **MUST** use the conventional commit format: `<type>(<scope>): <subject>`.
+- If the changes are assisted or made by you,
+  you **MUST** attach the assistant label:
+  `Assisted-by: [Provider]:[model-name] [tools]`.
+  Like: `Assisted-by: OpenAI:gpt-4.0 github`.
+- You should always used a "signed-off" commit,
+  with either the `-s` argument of git, or with the separated line:
+  `Signed-off-by: [HumanUser] <[mail]>`.
+
 ## Environment and Package Management (Strict)
 
 - The host distribution is **NixOS**. Treat this as a hard constraint.

@@ -46,7 +46,7 @@
         };
       };
 
-      "HDMI-A-2" = {
+      "HDMI-A-1" = {
         mode = {
           height = 1440;
           width = 2560;
@@ -67,7 +67,7 @@
         # };
       };
 
-      "HDMI-A-1" = {
+      "HDMI-A-3" = {
         mode = {
           height = 1200;
           width = 1920;
