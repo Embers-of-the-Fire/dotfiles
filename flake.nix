@@ -21,6 +21,8 @@
       url = "github:AvengeMedia/dms-plugin-registry";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    qutebrowser-fix-nixpkgs.url = "github:NixOS/nixpkgs/09c2982c8ee9631a7ceb6a4d6e2bd22d2002165a";
   };
 
   outputs =
@@ -33,6 +35,7 @@
     }:
     let
       system = "x86_64-linux";
+      qutebrowser-fix = inputs.qutebrowser-fix-nixpkgs.legacyPackages.${system};
     in
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem rec {
@@ -41,23 +44,12 @@
         modules = [
           {
             nixpkgs.overlays = [
-              (
-                final: prev:
-                let
-                  myKhal = final.callPackage ./khal.nix { };
-                in
-                {
-                  quickshell = prev.quickshell.overrideAttrs (old: {
-                    inherit (prev.llvmPackages_latest) stdenv;
-                  });
-                  khal = myKhal;
-                  python3Packages = prev.python3Packages.overrideScope (
-                    pyFinal: pyPrev: {
-                      khal = myKhal;
-                    }
-                  );
-                }
-              )
+              (final: prev: {
+                inherit (qutebrowser-fix) qutebrowser;
+                quickshell = prev.quickshell.overrideAttrs (old: {
+                  inherit (prev.llvmPackages_latest) stdenv;
+                });
+              })
             ];
           }
           ./configuration.nix
