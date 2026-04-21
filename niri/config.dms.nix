@@ -32,60 +32,6 @@
         };
         focus-at-startup = true;
       };
-
-      "DP-2" = {
-        mode = {
-          width = 3840;
-          height = 2160;
-          refresh = 60.0;
-        };
-        scale = 1.5;
-        position = {
-          x = 0;
-          y = 510;
-        };
-      };
-
-      "HDMI-A-2" = {
-        mode = {
-          height = 1440;
-          width = 2560;
-          refresh = 100.0;
-        };
-        scale = 1.2;
-        transform.rotation = 90;
-        position = {
-          x = 5120;
-          y = 0;
-        };
-
-        # Not currently implemented.
-        # See issue https://github.com/sodiboo/niri-flake/issues/1493 for status.
-        #
-        # layout = {
-        #   default-column-width.proportion = 1.0;
-        # };
-      };
-
-      "HDMI-A-1" = {
-        mode = {
-          height = 1200;
-          width = 1920;
-          refresh = 60.0;
-        };
-        scale = 1.0;
-        position = {
-          x = 5120;
-          y = 2134;
-        };
-
-        # Not currently implemented.
-        # See issue https://github.com/sodiboo/niri-flake/issues/1493 for status.
-        #
-        # layout = {
-        #   default-column-width.proportion = 1.0;
-        # };
-      };
     };
 
     layout = {
