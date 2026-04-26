@@ -45,6 +45,8 @@
                 quickshell = prev.quickshell.overrideAttrs (old: {
                   inherit (prev.llvmPackages_latest) stdenv;
                 });
+
+                researchSkills = final.callPackage ./agents/plugins/research-skills { };
               })
             ];
           }

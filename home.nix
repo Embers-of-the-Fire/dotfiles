@@ -250,6 +250,17 @@ in
 
   programs.opencode.enable = true;
 
+  xdg.configFile = {
+    "opencode/commands" = {
+      source = "${pkgs.researchSkills}/share/opencode/commands";
+      recursive = true;
+    };
+    "opencode/skills" = {
+      source = "${pkgs.researchSkills}/share/opencode/skills";
+      recursive = true;
+    };
+  };
+
   services.mako.enable = true;
   services.swayidle.enable = true;
   services.polkit-gnome.enable = true;
@@ -336,5 +347,6 @@ in
     sqlite
     sqlite-utils
     latex
+    researchSkills
   ];
 }
