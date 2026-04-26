@@ -8,7 +8,7 @@
   you **MUST** attach the assistant label:
   `Assisted-by: [Provider]:[model-name] [tools]`.
   Like: `Assisted-by: OpenAI:gpt-4.0 coccinelle sparse`.
-  Note: Tools that's are generic utilities like "gcc", "clang", etc. should be omitted from the label.
+  Note: Tools that's are generic utilities like "gcc", "clang", or trivial tools like "apply_patch", "url", etc. should be omitted from the label.
 - You should always used a "signed-off" commit,
   with either the `-s` argument of git, or with the separated line:
   `Signed-off-by: [HumanUser] <[mail]>`.
